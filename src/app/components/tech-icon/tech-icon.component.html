@@ -1,0 +1,8 @@
+<div [matTooltip]="tech.name" [matTooltipDisabled]="withoutTooltip" matTooltipPosition="above" matTooltipClass=" bg-green-500 text-white" class=" cursor-pointer text-center">
+  <ng-container *ngIf="!tech.isSimpleIcon;else simpleIcon">
+    <fa-icon [icon]="faIcon" [size]="size" class="text-green-500 w-fit"></fa-icon>
+  </ng-container>
+  <ng-template #simpleIcon>
+    <img [class]="sizeClass" [src]="tech.icon" />
+  </ng-template>
+</div>

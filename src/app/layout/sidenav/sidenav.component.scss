@@ -1,0 +1,18 @@
+.section {
+  @apply w-14 h-14 border-8 dark:border-cod-gray-500 rounded-full flex items-center justify-center dark:bg-cod-gray-500 relative z-50 transform transition-all duration-150 ease-linear;
+
+  &::after {
+    content: "";
+    @apply rounded-full w-full h-full top-1/2 left-1/2 border dark:border-gray-400 absolute z-0 transform -translate-x-1/2 -translate-y-1/2 hover:dark:border-green-400;
+  }
+
+  &.active {
+    &::after {
+      @apply dark:border-green-500 transform transition-all duration-150 ease-linear;
+    }
+
+    mat-icon{
+      @apply text-green-500 transform transition-all duration-150 ease-linear;
+    }
+  }
+}

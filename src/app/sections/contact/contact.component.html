@@ -1,0 +1,27 @@
+<section class="flex flex-col justify-center h-screen px-5 py-10">
+  <aj-section-title title="Contact" class="mt-auto"></aj-section-title>
+  <div class="grid grid-cols-2 gap-4 mb-auto mt-10">
+    <div class="list">
+      <a class="social-link group"
+        *ngFor="let socialLink of socialLinks$ | async" [href]="socialLink.link" target="_blank">
+        <fa-icon [icon]="socialLink.icon" class="group-hover:dark:!text-green-400" size="lg"></fa-icon>
+        <span class=" group-hover:text-white">{{ socialLink.username }}</span>
+        <button *ngIf="socialLink.copiable" mat-mini-fab class="copy-btn !bg-green-500 !text-white" color="primary" matTooltip="Copy content" matTooltipPosition="above" matTooltipClass="bg-green-500 text-white" (click)="copy($event,socialLink.username)">
+          <mat-icon class="!text-white copy-icon">content_copy</mat-icon>
+        </button>
+      </a>
+    </div>
+    <form class="flex flex-col gap-4">
+      <div>
+        <h4 class="text-2xl text-green-500 font-bold">Contact me</h4>
+        <p class="text-sm">Please provide a valid email so I can reach you back</p>
+      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>Fill form field</mat-label>
+        <input matInput placeholder="Placeholder">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    </form>
+  </div>
+</section>

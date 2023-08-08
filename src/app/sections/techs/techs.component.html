@@ -1,0 +1,9 @@
+<section class="flex flex-col justify-center h-screen px-5 py-10">
+  <aj-section-title title="Tech Stack" class="mt-auto"></aj-section-title>
+  <div class="grid grid-cols-6 gap-5 mb-auto mt-10">
+    <div class="flex flex-col gap-2 items-center border border-green-500 py-6" *ngFor="let tech of techs$ | async">
+      <aj-tech-icon [tech]="tech" size="4x" [withoutTooltip]="true"></aj-tech-icon>
+      <h6 class="text-lg">{{ tech.name }}</h6>
+    </div>
+  </div>
+</section>

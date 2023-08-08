@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~normalize.css";
+
+@import "./assets/styles/dark.theme.scss";
+
+@import url('swiper/css/pagination');
+
+// @import "~swiper/scss/pagination";
+
+@layer base {
+  *:not(svg, fa-icon, path) {
+    @apply dark:text-gray-300;
+  }
+
+  body {
+    @apply pt-[0.02px] dark:bg-cod-gray-500;
+  }
+}

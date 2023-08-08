@@ -1,0 +1,17 @@
+<section class="flex flex-col justify-center h-screen px-5 py-10">
+  <aj-section-title title="Testimonials" class="mt-auto"></aj-section-title>
+  <div class="mb-auto mt-10">
+    <div class="flex flex-wrap">
+      <div class="p-4 md:w-1/2 w-full" *ngFor="let testimonial of testimonials$ | async">
+        <div class="h-full border border-green-500 p-8 relative flex flex-col justify-between">
+          <mat-icon fontIcon="format_quote" class="quote-icon"></mat-icon>
+          <p class="leading-relaxed mb-6">{{ testimonial.content }}</p>
+          <a class="flex-grow flex flex-col justify-end pl-4 group hover:cursor-pointer transform duration-150 ease-linear">
+            <span class="title-font font-medium text-white transform duration-150 ease-linear group-hover:text-green-500 group-hover:underline">{{ testimonial.author.name }}</span>
+            <span class="text-gray-500 text-sm font-medium transform duration-150 ease-linear group-hover:text-gray-300">{{ testimonial.author.role }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,7 @@
+<section class="flex flex-col justify-center h-screen px-5 py-10">
+  <aj-section-title title="Education" secondTitle="Experience" class="mt-auto"></aj-section-title>
+  <div class="grid grid-cols-2 gap-5 mb-auto mt-10 w-fill">
+    <aj-timeline [timeline]="eduTimeLine$ | async"></aj-timeline>
+    <aj-timeline [timeline]="expTimeLine$ | async"></aj-timeline>
+  </div>
+</section>
