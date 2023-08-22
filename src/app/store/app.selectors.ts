@@ -19,6 +19,11 @@ export const selectSections = createSelector(
   (state: AppState) => state.sections
 );
 
+export const selectSectionById = () => createSelector(
+  appState,
+  (state: AppState) => state.sections
+);
+
 export const selectLangs = createSelector(
   appState,
   (state: AppState) => state.langs
@@ -62,4 +67,14 @@ export const getProjects = createSelector(
 export const getTestimonials = createSelector(
   appState,
   (state : AppState) => state.testimonials
+)
+
+export const getContactRequestLoading = createSelector(
+  appState,
+  (state : AppState) => state.contactRequestLoading
+)
+
+export const getContactRequestSuccess = createSelector(
+  appState,
+  (state : AppState) => state.contactRequestSuccess
 )

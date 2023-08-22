@@ -1,18 +1,18 @@
 <app-layout>
-
-  <swiper-container #swiper class="w-full h-screen overflow-hidden" loop="false" direction="vertical" mousewheel="true">
-    <!-- <swiper-slide><aj-introduction></aj-introduction></swiper-slide>
-    <swiper-slide><aj-edu-exp></aj-edu-exp></swiper-slide>
-    <swiper-slide><aj-techs></aj-techs></swiper-slide>
-    <swiper-slide><aj-projects></aj-projects></swiper-slide>
-    <swiper-slide><aj-testimonials></aj-testimonials></swiper-slide> -->
-    <swiper-slide><aj-contact></aj-contact></swiper-slide>
+  <swiper-container #swiper class=" w-full h-fill z-0" loop="false" direction="vertical" mousewheel="true">
+    <swiper-slide class="!h-fit lg:h-auto"><aj-introduction></aj-introduction></swiper-slide>
+    <swiper-slide class="!h-fit lg:h-auto"><aj-edu-exp></aj-edu-exp></swiper-slide>
+    <swiper-slide class="!h-fit lg:h-auto"><aj-techs></aj-techs></swiper-slide>
+    <swiper-slide class="!h-fit lg:h-auto"><aj-projects></aj-projects></swiper-slide>
+    <swiper-slide class="!h-fit lg:h-auto"><aj-testimonials></aj-testimonials></swiper-slide>
+    <swiper-slide class="!h-fit lg:h-auto"><aj-contact></aj-contact></swiper-slide>
   </swiper-container>
+  <!-- <div class="lg:!hidden flex flex-col">
+    <aj-introduction></aj-introduction>
+    <aj-edu-exp></aj-edu-exp>
+    <aj-techs></aj-techs>
+    <aj-projects></aj-projects>
+    <aj-testimonials></aj-testimonials>
+    <aj-contact></aj-contact>
+  </div> -->
 </app-layout>
-<!-- <swiper-container class="w-full h-screen overflow-hidden" loop="true" direction="vertical" pagination="true"
-  pagination-clickable="true" mousewheel="true">
-  <swiper-slide class="w-full h-screen">1</swiper-slide>
-  <swiper-slide class="w-full h-screen">2</swiper-slide>
-  <swiper-slide class="w-full h-screen">3</swiper-slide>
-  <swiper-slide class="w-full h-screen">4</swiper-slide>
-</swiper-container> -->

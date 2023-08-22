@@ -1,35 +1,36 @@
-<section class="flex flex-col justify-center h-screen px-5 py-10">
+<section [id]="sectionId" class="flex flex-col justify-center lg:h-screen px-0 pt-20 pb-5 sm:px-5 sm:pb-10">
   <aj-section-title title="introduction" class="mt-auto"></aj-section-title>
-  <div class="flex flex-col gap-20 justify-between mb-auto mt-10 w-fill">
-    <div class="flex justify-between items-center">
-      <div class="flex flex-col flex-shrink-0">
+  <div class="flex flex-col gap-10 sm:gap-20 justify-between mb-auto mt-10 w-fill">
+    <div class="flex flex-col gap-8 md:gap-0 md:flex-row justify-between items-center">
+      <div class="flex flex-col flex-shrink-0 ">
         <p class="text-xl text-green-500">Hi there, Welcome!</p>
-        <h1 class=" text-6xl text-white font-medium">I'm Achraf JDILY</h1>
-        <p class="mt-5">I'm a software engineer specialized & experienced in <br> full stack web & hybrid mobile apps development</p>
-        <div class="flex gap-4 mt-16">
+        <h1 class="text-4xl sm:text-6xl text-white font-medium">I'm Achraf JDILY</h1>
+        <p class="mt-5">I'm a software engineer specialized & experienced in <br class="hidden sm:block"> full stack web
+          & hybrid mobile apps development</p>
+        <div class="flex flex-wrap gap-4 mt-5 sm:mt-16">
           <a mat-stroked-button color="accent">Contact me</a>
-          <button mat-flat-button color="primary" >
-            <p class=" dark:!text-cod-gray-500">My resume</p>
+          <button mat-flat-button color="primary">
+            <p class=" !text-cod-gray-500">My resume</p>
           </button>
           <button mat-stroked-button color="primary">
             <p class=" text-green-500">Europass resume</p>
           </button>
         </div>
       </div>
-      <aj-desktop class="w-fill max-w-xs"></aj-desktop>
+      <aj-desktop class="w-fill max-w-xs lg:hidden xl:block"></aj-desktop>
     </div>
-    <div class="flex gap-20" *ngIf="expStats$ | async as expStats">
+    <div class="grid grid-cols-3 sm:flex gap-4 sm:gap-20" *ngIf="expStats$ | async as expStats">
       <div class="flex flex-col">
-        <p class=" text-green-400 text-7xl">{{ expStats.years }}</p>
-        <h3 class="text-lg font-light">YEARS OF EXPERIENCE</h3>
+        <p class=" text-green-400 text-5xl sm:text-7xl">{{ expStats.years }}</p>
+        <h3 class="text-xs sm:text-lg font-light uppercase">YEARS OF EXPERIENCE</h3>
       </div>
       <div class="flex flex-col">
-        <p class=" text-green-400 text-7xl">{{ expStats.projects }}</p>
-        <h3 class="text-lg font-light">Projects</h3>
+        <p class=" text-green-400 text-5xl sm:text-7xl">{{ expStats.projects }}</p>
+        <h3 class="text-xs sm:text-lg font-light uppercase">Projects</h3>
       </div>
       <div class="flex flex-col">
-        <p class=" text-green-400 text-7xl">{{ expStats.contributions }}</p>
-        <h3 class="text-lg font-light">Contributions</h3>
+        <p class=" text-green-400 text-5xl sm:text-7xl">{{ expStats.contributions }}</p>
+        <h3 class="text-xs sm:text-lg font-light uppercase">Contributions</h3>
       </div>
     </div>
   </div>

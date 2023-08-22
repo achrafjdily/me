@@ -58,7 +58,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -72,6 +78,10 @@
             "development": {
               "browserTarget": "portfolio:build:development"
             }
+          },
+          "options": {
+            "host": "ng.test",
+            "port": 80
           },
           "defaultConfiguration": "development"
         },

@@ -96,3 +96,6 @@ $my-theme: mat.define-dark-theme((
 @include mat.button-theme($my-theme);
 
 // Include the theme mixins for other components you use here.
+
+// Theme Init
+@include mat.all-component-themes($my-theme);

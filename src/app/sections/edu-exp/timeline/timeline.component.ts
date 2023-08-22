@@ -6,11 +6,8 @@ import { TimeLineItem } from '../../../store/models/timeline-item.interface';
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.scss']
 })
-export class TimelineComponent implements OnInit{
+export class TimelineComponent{
 
   @Input() timeline!: TimeLineItem[] | null;
 
-  ngOnInit(): void {
-    console.log(this.timeline)
-  }
 }

@@ -1,40 +1,43 @@
-<aside class="flex flex-col lg:h-fill lg:my-14 lg:px-5 border-r dark:border-gray-400 justify-center max-w-sm ">
-  <header class="flex justify-between w-full border-t pt-5 dark:border-gray-400">
+<aside
+  class="relative flex flex-col sm:h-fill my-14 px-5 pt-5 border-r border-gray-400 justify-center w-72 sm:w-auto sm:max-w-sm lg:min-w-[22rem] ">
+  <header class="flex justify-between w-full border-t pt-5 border-gray-400">
     <app-white-full-text-logo class="w-20"></app-white-full-text-logo>
-    <h2 class="p-0 text-right max-w-[113px] text-lg">Full Stack web developer</h2>
+    <h2 class="p-0 text-right max-w-[113px] text-sm sm:text-lg">Full Stack web developer</h2>
   </header>
 
-  <div class="relative">
-    <app-white-outlined-collapsed-logo class="w-1/4 z-0 absolute top-14 right-14 fill-green-500"></app-white-outlined-collapsed-logo>
-    <aj-dots class=" w-12 absolute z-20 fill-cod-gray-600 top-2/4 left-14"></aj-dots>
+  <div class="w-9/12 mx-auto sm:w-auto relative">
+    <app-white-outlined-collapsed-logo
+      class="w-1/4 z-0 absolute top-14 right-10 sm:right-14 fill-green-500"></app-white-outlined-collapsed-logo>
+    <aj-dots class=" w-12 absolute z-20 fill-cod-gray-600 top-[58%] sm:top-2/4 left-0 sm:left-14"></aj-dots>
 
-    <img src="../../../assets/imgs/me.png" class="w-2/3 mx-auto z-10 relative">
+    <img src="/assets/imgs/me.png" class="w-full sm:w-2/3 mx-auto z-10 relative">
     <div
-      class="border border-white py-2 px-2.5 dark:bg-cod-gray-500 z-20 absolute bottom-2 w-9/12 flex flex-col left-0 right-0 mx-auto">
+      class="border border-white py-2 px-2.5 bg-cod-gray-500 z-20 absolute bottom-2 w-full sm:w-9/12 flex flex-col left-0 right-0 mx-auto">
       <div class="flex items-center gap-2">
         <span class=" w-3 h-3 bg-green-500"></span>
-        <h3 class=" leading-none">Currently available for work</h3>
+        <h3 class="text-xs sm:text-base leading-none">Currently available for work</h3>
       </div>
     </div>
   </div>
-  <button mat-flat-button color="primary" class="w-9/12 mx-auto !rounded-none">
+  <button mat-flat-button color="primary" class="w-9/12 mx-auto !rounded-none" (click)="goToContactSection($event)">
     <div class=" flex items-center gap-1">
-      <mat-icon fontIcon="mail_outline" class=" dark:!text-cod-gray-500"></mat-icon>
-      <span class="dark:!text-cod-gray-500 leading-none">Hire me</span>
+      <mat-icon fontIcon="mail_outline" class=" !text-cod-gray-500"></mat-icon>
+      <span class="!text-cod-gray-500 leading-none">Hire me</span>
     </div>
   </button>
 
-  <div class="flex flex-col gap-4 mt-10 ml-auto w-fit dark:bg-cod-gray-500 transform translate-x-14 p-3.5">
-    <a class="flex relative border py-2 px-2.5 items-center  gap-2 flex-grow dark:border-gray-400 group hover:bg-black hover:dark:border-white"
+  <div
+    class="relative z-10 flex flex-col gap-4 mt-4 sm:mt-10 ml-auto w-fit bg-cod-gray-500 transform translate-x-10 sm:translate-x-14 py-3.5 px-2 sm:!p-3.5">
+    <a class="flex relative border py-2 px-2.5 items-center  gap-2 flex-grow border-gray-400 group hover:bg-black hover:border-white"
       *ngFor="let socialLink of socialLinks$ | async" [href]="socialLink.link" target="_blank">
-      <fa-icon [icon]="socialLink.icon" class="group-hover:dark:!text-green-400" size="lg"></fa-icon>
-      <span class=" group-hover:text-white">{{ socialLink.username }}</span>
+      <fa-icon [icon]="socialLink.icon" class="group-hover:!text-green-400" size="lg"></fa-icon>
+      <span class="text-sm sm:text-base group-hover:text-white">{{ socialLink.username }}</span>
     </a>
   </div>
 
-  <div class="flex gap-4 mt-5">
-    <span class=" border-t dark:border-gray-400 w-10 "></span>
+  <div class="absolute bottom-5 left-0 sm:relative flex gap-4 mt-5 mx-5 w-fill z-0">
+    <span class=" border-t border-gray-400 w-10 "></span>
     <aj-dots class=" w-16 transform -translate-y-3/4 fill-gray-400 flex-shrink-0"></aj-dots>
-    <span class=" border-t dark:border-gray-400 w-fill "></span>
+    <span class=" border-t border-gray-400 w-fill "></span>
   </div>
 </aside>

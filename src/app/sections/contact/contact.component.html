@@ -1,27 +1,79 @@
-<section class="flex flex-col justify-center h-screen px-5 py-10">
+<section [id]="sectionId" class="flex flex-col justify-center lg:h-screen px-0 py-5 sm:px-5 sm:py-10 pt-20">
   <aj-section-title title="Contact" class="mt-auto"></aj-section-title>
-  <div class="grid grid-cols-2 gap-4 mb-auto mt-10">
-    <div class="list">
-      <a class="social-link group"
-        *ngFor="let socialLink of socialLinks$ | async" [href]="socialLink.link" target="_blank">
-        <fa-icon [icon]="socialLink.icon" class="group-hover:dark:!text-green-400" size="lg"></fa-icon>
+  <div class="grid grid-cols-1 sm:grid-cols-7 gap-y-10 sm:gap-y-0 gap-x-0 sm:gap-x-7 lg:gap-x-4 xl:gap-x-16 mb-auto mt-6 sm:mt-10 px-2.5 sm:px-0">
+    <div class="hidden sm:block sm:col-start-4 sm:col-span-4">
+      <h4 class="text-2xl text-green-500 font-bold">Contact me</h4>
+      <p class="text-sm">Please provide a valid email so I can reach you back</p>
+    </div>
+    <div class="list mt-8">
+      <a class="social-link group" *ngFor="let socialLink of socialLinks$ | async" [href]="socialLink.link"
+        target="_blank">
+        <fa-icon [icon]="socialLink.icon" class="group-hover:!text-green-400" size="lg"></fa-icon>
         <span class=" group-hover:text-white">{{ socialLink.username }}</span>
-        <button *ngIf="socialLink.copiable" mat-mini-fab class="copy-btn !bg-green-500 !text-white" color="primary" matTooltip="Copy content" matTooltipPosition="above" matTooltipClass="bg-green-500 text-white" (click)="copy($event,socialLink.username)">
+        <button *ngIf="socialLink.copiable" mat-mini-fab class="copy-btn !bg-green-500 !text-white" color="primary"
+          matTooltip="Copy content" matTooltipPosition="above" matTooltipClass="!bg-green-500 text-white"
+          (click)="copy($event,socialLink.username)">
           <mat-icon class="!text-white copy-icon">content_copy</mat-icon>
         </button>
       </a>
     </div>
-    <form class="flex flex-col gap-4">
-      <div>
+    <form class="col-span-4" [formGroup]="contactForm" (ngSubmit)="submit()">
+      <div class="block sm:hidden">
         <h4 class="text-2xl text-green-500 font-bold">Contact me</h4>
         <p class="text-sm">Please provide a valid email so I can reach you back</p>
       </div>
-      <mat-form-field appearance="fill">
-        <mat-label>Fill form field</mat-label>
-        <input matInput placeholder="Placeholder">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
+      <div class="w-full flex flex-col mt-2 sm:mt-8">
+        <mat-form-field appearance="outline" class="aj-field">
+          <mat-label>Full name</mat-label>
+          <input matInput placeholder="Full name" type="text" class="!text-base" formControlName="fullname">
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-error *ngIf="contactForm.get('fullname')?.hasError('required')">This field
+            is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="aj-field">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" type="email" class="!text-base" formControlName="email">
+          <mat-icon matSuffix>mail</mat-icon>
+          <mat-error *ngIf="contactForm.get('email')?.hasError('required')">This
+            field
+            is required</mat-error>
+          <mat-error *ngIf="contactForm.get('email')?.hasError('email')">This
+            field
+            must be a valid email address</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="aj-field">
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="Phone" type="tel" class="!text-base" formControlName="phone">
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="aj-field">
+          <mat-label>Message</mat-label>
+          <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4" #autosize="cdkTextareaAutosize"
+            placeholder="Message" class="!text-base" formControlName="message"></textarea>
+          <mat-icon matSuffix>chat</mat-icon>
+          <mat-error *ngIf="contactForm.get('message')?.hasError('required')">This
+            field
+            is required</mat-error>
+          <mat-error *ngIf="contactForm.get('message')?.hasError('minlength')">This
+            field must contain at least 50 characters</mat-error>
+        </mat-form-field>
+        <ng-hcaptcha formControlName="captcha"></ng-hcaptcha>
+        <mat-error *ngIf="contactForm.get('captcha')?.hasError('required')">Captcha test must be passed</mat-error>
+        <button mat-flat-button color="primary" class="!rounded-none mt-4" type="submit"
+          [disabled]="contactRequestLoading$ | async">
+          <span class="text-white" *ngIf="!(contactRequestLoading$ | async);else spinner">Submit</span>
+          <ng-template #spinner>
+            <mat-spinner class="custom-spinner" diameter="20"></mat-spinner>
+          </ng-template>
+        </button>
+      </div>
+
     </form>
+  </div>
+  <div class="flex items-center gap-3 w-full mt-20 sm:mt-10 lg:mt-0">
+    <span class="flex-grow border-t border-green-500"></span>
+    <h6 class="capitalize text-white text-xl flex-shrink-0 leading-none">Achraf JDILY <span class="text-lg">© {{ year
+        }}</span></h6>
+    <span class="flex-grow border-t border-green-500"></span>
   </div>
 </section>

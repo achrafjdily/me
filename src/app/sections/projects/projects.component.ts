@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { getProjects } from '@store/app.selectors';
 import { Project } from '@store/models/project.interface';
+import { ProjectsSectionId } from '../../store/models/section.interface';
 
 @Component({
   selector: 'aj-projects',
@@ -12,6 +13,8 @@ import { Project } from '@store/models/project.interface';
 export class ProjectsComponent  implements OnInit{
 
   public projects$! : Observable<Project[]>;
+
+  public readonly sectionId = ProjectsSectionId;
 
   constructor(private store: Store) { }
 

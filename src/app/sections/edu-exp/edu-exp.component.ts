@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { TimeLineItem } from '@store/models/timeline-item.interface';
 import { getEduTimeline, getExpTimeLine } from '@store/app.selectors';
+import { EduExpSectionId } from '../../store/models/section.interface';
 
 @Component({
   selector: 'aj-edu-exp',
@@ -13,6 +14,8 @@ export class EduExpComponent implements OnInit {
 
   eduTimeLine$!: Observable<TimeLineItem[]>;
   expTimeLine$!: Observable<TimeLineItem[]>;
+
+  public readonly sectionId = EduExpSectionId;
 
   constructor(private store: Store) { }
 

@@ -1,13 +1,14 @@
-<div class=" fixed flex items-center top-0 right-24 w-14 border-r dark:border-gray-400 h-screen nav">
-  <div class="flex gap-2 items-center !absolute top-14 right-2 z-50">
-    <button mat-stroked-button [matMenuTriggerFor]="langMenu" class="  dark:!border-gray-400 !rounded-none">
+<div
+  class="fixed flex items-center top-14 lg:top-0 right-6  lg:right-10 xl:right-24 border-r border-gray-400 h-screen nav z-20">
+  <!-- <div class="hidden lg:flex gap-2 items-center !absolute top-14 right-2 z-50">
+    <button mat-stroked-button [matMenuTriggerFor]="langMenu" class="  !border-gray-400 !rounded-none">
       <div class="flex gap-2 mr-3 w-fit" *ngIf="selectedLang$ | async as selectedLang">
         <img [src]="selectedLang.icon" class="w-5">
         <span class=" capitalize">{{ selectedLang.abbrv }}</span>
       </div>
     </button>
-    <span class=" border-t dark:border-gray-400 w-6"></span>
-    <mat-menu #langMenu="matMenu" xPosition="before" class=" !rounded-none dark:bg-cod-gray-500">
+    <span class=" border-t border-gray-400 w-6"></span>
+    <mat-menu #langMenu="matMenu" xPosition="before" class=" !rounded-none bg-cod-gray-500">
 
       <button mat-menu-item *ngFor="let lang of langs$ | async">
         <div class="flex gap-2">
@@ -16,12 +17,12 @@
         </div>
       </button>
     </mat-menu>
-  </div>
+  </div> -->
 
   <nav class="flex flex-col gap-4 transform translate-x-1/2 ">
     <a [href]="'#'+section.anchor" class="section group" *ngFor="let section of sections$ | async;let i = index;"
-      (click)="setSection(i)"
-      [matTooltip]="section.name" matTooltipPosition="left" matTooltipClass=" bg-green-500 text-white" [ngClass]="{'active': i == (currentSection$ | async)}">
+      (click)="setSection(i)" [matTooltip]="section.name" matTooltipPosition="left"
+      matTooltipClass=" bg-green-500 text-white" [ngClass]="{'active': i == (currentSection$ | async)?.index}">
       <mat-icon [fontIcon]="section.icon" class="group-hover:text-green-400"></mat-icon>
     </a>
   </nav>

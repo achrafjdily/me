@@ -1,5 +1,5 @@
 <div class="flex flex-col">
-  <div class="flex gap-4" *ngFor="let item of timeline">
+  <div class="flex gap-4 lg:gap-1 xl:gap-4" *ngFor="let item of timeline">
     <div class="relative">
       <div class="relative w-10 h-10 bg-green-600 rounded-full z-10 flex items-center">
         <aj-extended-line-logo class="block w-5 fill-white mx-auto my-auto"></aj-extended-line-logo>
@@ -20,7 +20,7 @@
           - {{ item.job.time }} {{ item.job.remote ? "( Remote )" : null }}
         </ng-container>
       </p>
-      <div class="flex items-center gap-4 mt-4" *ngIf="item.techs && item.techs.length > 0">
+      <div class="flex flex-col items-start gap-1 mt-2" *ngIf="item.techs && item.techs.length > 0">
         <p class=" flex-shrink-0">Techs & Tools : </p>
         <div class="grid grid-cols-5 gap-y-1">
           <aj-tech-icon *ngFor="let tech of item.techs; let i = index" [tech]="tech" class="px-2" [ngClass]="{'border-l': i % 5 != 0}"></aj-tech-icon>

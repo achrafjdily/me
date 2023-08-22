@@ -3,7 +3,7 @@ import { eduTimeLine, TimeLineItem, expTimeLine } from "./models/timeline-item.i
 import { allTechs, TechItem } from "./models/tech-item.interface";
 import { Project, projects } from "./models/project.interface";
 import { allSocialLinks, SocialLink, socialLinks } from "./models/social-link.interface";
-import { Section, sections } from "./models/section.interface";
+import { CurrentSection, Section, sections } from "./models/section.interface";
 import { langs } from "./models/lang.interface";
 import { Testimonial, testimonials } from "./models/testimonial.interface";
 
@@ -23,9 +23,11 @@ export interface AppState {
   eduTimeLine: TimeLineItem[],
   expTimeLine: TimeLineItem[],
   techs: TechItem[],
-  currentSection: number,
-  projects : Project[],
-  testimonials : Testimonial[]
+  currentSection: CurrentSection,
+  projects: Project[],
+  testimonials: Testimonial[],
+  contactRequestLoading: boolean,
+  contactRequestSuccess: boolean,
 }
 
 export const initialState: AppState = {
@@ -38,7 +40,9 @@ export const initialState: AppState = {
   eduTimeLine: eduTimeLine,
   expTimeLine: expTimeLine,
   techs: allTechs,
-  currentSection: 0,
-  projects : projects,
-  testimonials : testimonials
+  currentSection: { index: 0, section: sections[0] },
+  projects: projects,
+  testimonials: testimonials,
+  contactRequestLoading: false,
+  contactRequestSuccess: false,
 };

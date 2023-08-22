@@ -1,4 +1,4 @@
-import { faTwitter, faGithub, faWhatsapp, IconDefinition, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter, faGithub, faWhatsapp, IconDefinition, faLinkedin, faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 export interface SocialLink {
@@ -61,6 +61,13 @@ const whatsapp: SocialLink = {
   icon: faWhatsapp
 }
 
-export const allSocialLinks: SocialLink[] = [mail,tel,tel2,Linkedin,twitter,github,whatsapp];
+const discord: SocialLink = {
+  platform: 'discord',
+  username: 'Achraf - bisternastic',
+  link: 'https://discord.com/users/531857297132093452',
+  icon: faDiscord
+}
+
+export const allSocialLinks: SocialLink[] = [mail,tel,tel2,Linkedin,twitter,github,whatsapp,discord];
 
 export const socialLinks: SocialLink[] = [Linkedin,twitter,github];

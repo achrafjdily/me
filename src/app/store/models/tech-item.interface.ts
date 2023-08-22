@@ -13,6 +13,12 @@ export const angular: TechItem = {
   name: "Angular"
 }
 
+export const ngrx: TechItem = {
+  icon: 'https://cdn.simpleicons.org/ngrx/22c55e',
+  name: "Ngrx",
+  isSimpleIcon: true,
+}
+
 export const php: TechItem = {
   icon: faPhp,
   name: "Php"
@@ -59,6 +65,18 @@ export const docker: TechItem = {
   name: "Docker"
 }
 
+export const mysql: TechItem = {
+  icon: 'https://cdn.simpleicons.org/mysql/22c55e',
+  name: "MySql",
+  isSimpleIcon: true
+}
+
+export const postgres: TechItem = {
+  icon: 'https://cdn.simpleicons.org/postgresql/22c55e',
+  name: "PostgreSql",
+  isSimpleIcon: true
+}
+
 export const alpineJs: TechItem = {
   icon: 'https://cdn.simpleicons.org/Alpine.js/22c55e',
   name: 'AlpineJs',
@@ -89,4 +107,4 @@ export const microservices: TechItem = {
   isSimpleIcon: true
 }
 
-export const allTechs: TechItem[] = [php, laravel, js, ts, angular, vue, alpineJs, ionic,tailwindcss, docker, restApi, microservices]
+export const allTechs: TechItem[] = [php, laravel, js, ts, angular,ngrx, vue, alpineJs, ionic,tailwindcss,mysql,postgres, docker, restApi, microservices]

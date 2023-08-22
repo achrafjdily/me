@@ -1,9 +1,9 @@
-<section class="flex flex-col justify-center h-screen px-5 py-10">
+<section [attr.id]="sectionId" class="flex flex-col justify-center lg:h-screen px-0 py-5 sm:px-5 sm:py-10 lg:px-0 xl:px-5 pt-20">
   <aj-section-title title="Testimonials" class="mt-auto"></aj-section-title>
   <div class="mb-auto mt-10">
-    <div class="flex flex-wrap">
-      <div class="p-4 md:w-1/2 w-full" *ngFor="let testimonial of testimonials$ | async">
-        <div class="h-full border border-green-500 p-8 relative flex flex-col justify-between">
+    <div class="flex flex-col sm:flex-row gap-8 sm:gap-4 lg:gap-2 xl:gap-4">
+      <div class="" *ngFor="let testimonial of testimonials$ | async">
+        <div class="h-full border border-green-500 px-3 pt-8 pb-3 lg:!px-4 relative flex flex-col justify-between">
           <mat-icon fontIcon="format_quote" class="quote-icon"></mat-icon>
           <p class="leading-relaxed mb-6">{{ testimonial.content }}</p>
           <a class="flex-grow flex flex-col justify-end pl-4 group hover:cursor-pointer transform duration-150 ease-linear">

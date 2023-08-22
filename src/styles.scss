@@ -14,10 +14,44 @@
 
 @layer base {
   *:not(svg, fa-icon, path) {
-    @apply dark:text-gray-300;
+    @apply text-gray-300;
   }
 
   body {
-    @apply pt-[0.02px] dark:bg-cod-gray-500;
+    @apply pt-[0.02px] bg-cod-gray-500;
   }
+}
+
+.mat-mdc-tooltip{
+  .mdc-tooltip__surface{
+    @apply bg-transparent #{!important};
+  }
+}
+
+.mdc-snackbar__surface{
+  @apply rounded-none #{!important};
+  .mat-mdc-snack-bar-label{
+    @apply text-cod-gray-500 #{!important};
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  z-index: 10000;
+  @apply w-1.5 sm:w-2.5;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-cod-gray-400;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-green-500;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-green-600;
 }

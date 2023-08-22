@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { getCurrentSection, getSelectedLang, selectLangs, selectSections } from "@store/app.selectors";
 import { AppPageActions } from '../../store/actions';
-import { ActivatedRoute } from '@angular/router';
+import { CurrentSection } from '../../store/models/section.interface';
 
 @Component({
   selector: 'aj-sidenav',
@@ -15,18 +15,12 @@ export class SidenavComponent implements OnInit {
   sections$!: Observable<Array<any>>;
   langs$!: Observable<Array<any>>;
   selectedLang$!: Observable<any>;
-  currentSection$!: Observable<number>;
+  currentSection$!: Observable<CurrentSection>;
 
-  constructor(private store: Store, private route: ActivatedRoute) { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.sections$ = this.store.select(selectSections).pipe(
-      tap(sections => {
-        this.route.fragment.subscribe( route => {
-          if(route) this.store.dispatch(AppPageActions.setSection({ section: sections.findIndex(section => section.anchor == route) }))
-        })
-      })
-    )
+    this.sections$ = this.store.select(selectSections)
     this.langs$ = this.store.select(selectLangs)
     this.selectedLang$ = this.store.select(getSelectedLang)
     this.currentSection$ = this.store.select(getCurrentSection)

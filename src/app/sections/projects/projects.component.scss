@@ -1,13 +1,14 @@
 .list {
-  @apply grid grid-cols-3 gap-4;
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-4 lg:gap-2 xl:gap-4;
   .project {
+    @apply lg:col-span-3 h-full;
 
-    &:nth-child(4){
-      @apply h-fit;
+    &:first-child {
+      @apply col-span-1 sm:col-span-2 lg:col-span-5;
     }
 
-    &:nth-child(n+5) {
-      @apply col-span-2;
+    &:nth-child(2){
+      @apply lg:col-span-4;
     }
   }
 }

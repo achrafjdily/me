@@ -1,15 +1,11 @@
 .list {
-  @apply grid grid-cols-2 gap-4;
+  @apply grid grid-cols-1 gap-4 col-span-1 sm:col-span-3 items-start h-fit;
 
   .social-link {
-    @apply col-span-2 flex relative border py-2 px-2.5 items-center  gap-2 flex-grow dark:border-gray-400 hover:bg-black hover:dark:border-white;
+    @apply col-span-2 flex relative border py-2 px-2.5 items-center  gap-2 flex-grow border-gray-400 hover:bg-black hover:border-white;
 
-    &:nth-child(2),
-    &:nth-child(3) {
-      @apply col-span-1;
-    }
     .copy-btn {
-      @apply absolute -top-3.5 -right-2 h-7 w-7;
+      @apply absolute -top-3.5 -right-3.5 h-7 w-7;
 
       .copy-icon {
         @apply w-fit h-fit text-base leading-none;
@@ -18,5 +14,25 @@
         }
       }
     }
+  }
+}
+
+::ng-deep.aj-field {
+  .mdc-notched-outline__leading {
+    @apply border rounded-none #{!important};
+  }
+
+  .mdc-notched-outline__notch {
+    @apply border-b border-r-0 #{!important};
+  }
+
+  .mdc-notched-outline__trailing {
+    @apply border rounded-none #{!important};
+  }
+}
+
+::ng-deep.custom-spinner {
+  circle, .mat-spinner circle {
+    @apply stroke-white #{!important};
   }
 }
