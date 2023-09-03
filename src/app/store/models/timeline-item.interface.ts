@@ -54,12 +54,19 @@ export const expTimeLine: TimeLineItem[] = [
     },
     title: 'Full Stack web developer',
     techs: [
-      php,laravel,js,vue,git,gitlab,docker
+      php, laravel, js, vue, git, gitlab, docker
     ],
-    job : {
-      remote : true,
-      time : 'Full time'
-    }
+    job: {
+      remote: true,
+      time: 'Full time'
+    },
+    tasks: [
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+      'quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+      'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.',
+      'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.',
+    ]
   },
   {
     start: moment("2023-01"),
@@ -70,11 +77,11 @@ export const expTimeLine: TimeLineItem[] = [
     },
     title: 'Full Stack web developer',
     techs: [
-      php,laravel,js,alpineJs,git,gitlab,docker
+      php, laravel, js, alpineJs, git, gitlab, docker
     ],
-    job : {
-      remote : true,
-      time : 'Part time'
+    job: {
+      remote: true,
+      time: 'Part time'
     }
   },
   {
@@ -86,11 +93,11 @@ export const expTimeLine: TimeLineItem[] = [
     },
     title: 'Angular Frontend web developer',
     techs: [
-      ts,angular,git,gitlab
+      ts, angular, git, gitlab
     ],
-    job : {
-      remote : true,
-      time : 'Part time'
+    job: {
+      remote: true,
+      time: 'Part time'
     }
   },
   {
@@ -102,11 +109,11 @@ export const expTimeLine: TimeLineItem[] = [
     },
     title: 'Full Stack web developer',
     techs: [
-      php,laravel,ts,angular,ionic,git,github
+      php, laravel, ts, angular, ionic, git, github
     ],
-    job : {
-      remote : false,
-      time : 'Full time'
+    job: {
+      remote: false,
+      time: 'Full time'
     }
   },
 ]

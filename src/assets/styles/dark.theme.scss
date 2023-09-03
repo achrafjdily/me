@@ -87,6 +87,10 @@ $my-theme: mat.define-dark-theme((
  density: 0,
 ));
 
+.aj-field{
+  @include mat.form-field-density(-2)
+}
+
 // Emit theme-dependent styles for common features used across multiple components.
 @include mat.core-theme($my-theme);
 

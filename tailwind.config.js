@@ -18,7 +18,7 @@ module.exports = {
         'mobilenav' : 1024,
         'sidenav': 2048
       },
-      screens: {
+      screens : {
 
       }
     },

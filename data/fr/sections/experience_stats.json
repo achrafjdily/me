@@ -1,0 +1,17 @@
+[
+  {
+    "title": "ANNÉES D'EXPÉRIENCE",
+    "value": "4",
+    "replaceableSlug": "{YEARS_OF_EXPERIENCE}"
+  },
+  {
+    "title": "Projets",
+    "value": "15",
+    "replaceableSlug": "{PROJECTS}"
+  },
+  {
+    "title": "Contributions",
+    "value": "13+",
+    "replaceableSlug": "{CONTRIBUTIONS}"
+  }
+]

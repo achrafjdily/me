@@ -1,0 +1,97 @@
+{
+  "title": "EXPERIENCE",
+  "data": [
+    {
+      "start": "2020-09",
+      "end": "2023-07",
+      "institute": {
+        "name": "Promy",
+        "link": "https://promy.fr"
+      },
+      "title": "Full Stack web developer",
+      "techs": [
+        "php",
+        "laravel",
+        "js",
+        "vue",
+        "git",
+        "gitlab",
+        "docker"
+      ],
+      "job": {
+        "remote": true,
+        "time": "Full time"
+      },
+      "tasks": [
+        "Collaborated and built a real estate rentals platform that automates and eases the rental process with multiple features like generation of rental agreements, complex financial accounting and payments tracking. Led many architectural and engineering decisions throughout the project",
+        "Collaborated in the development of a Saas platform providing multiple services to real estate developers. Helped with system design and code refactoring. Solely developed and led severals decisions in some parts of the platform and its subprojects and features like making of financial balance sheet auto calculator by implementing complex calculations in user-friendly spreadsheet-like interfaces. Contributed on the development of other complex and advanced features such as multi-layered maps with some 3d layers.",
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+        "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+        "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness."
+      ]
+    },
+    {
+      "start": "2023-01",
+      "end": "2023-04",
+      "institute": {
+        "name": "Immofind",
+        "link": "https://immofind.ma"
+      },
+      "title": "Full Stack web developer",
+      "techs": [
+        "php",
+        "laravel",
+        "js",
+        "alpineJs",
+        "git",
+        "gitlab",
+        "docker"
+      ],
+      "job": {
+        "remote": true,
+        "time": "Part time"
+      }
+    },
+    {
+      "start": "2021-04",
+      "end": "2021-08",
+      "institute": {
+        "name": "Moenn",
+        "link": "https://moenn-technologies.com"
+      },
+      "title": "Angular Frontend web developer",
+      "techs": [
+        "ts",
+        "angular",
+        "git",
+        "gitlab"
+      ],
+      "job": {
+        "remote": true,
+        "time": "Part time"
+      }
+    },
+    {
+      "start": "2019-08",
+      "end": "2020-06",
+      "institute": {
+        "name": "Devaxy",
+        "link": "https://www.linkedin.com/company/devaxy"
+      },
+      "title": "Full Stack web developer",
+      "techs": [
+        "php",
+        "laravel",
+        "ts",
+        "angular",
+        "ionic",
+        "git",
+        "github"
+      ],
+      "job": {
+        "remote": false,
+        "time": "Full time"
+      }
+    }
+  ]
+}

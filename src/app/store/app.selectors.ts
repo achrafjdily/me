@@ -4,6 +4,11 @@ import { AppState } from './app.state';
 
 const appState = createFeatureSelector<AppState>('appState');
 
+export const getHiringAvailability = createSelector(
+  appState,
+  (state: AppState) => state.hiringAvailability
+);
+
 export const selectSocialLinks = createSelector(
   appState,
   (state: AppState) => state.socialLinks
@@ -61,20 +66,20 @@ export const getCurrentSection = createSelector(
 
 export const getProjects = createSelector(
   appState,
-  (state : AppState) => state.projects
+  (state: AppState) => state.projects
 )
 
 export const getTestimonials = createSelector(
   appState,
-  (state : AppState) => state.testimonials
+  (state: AppState) => state.testimonials
 )
 
 export const getContactRequestLoading = createSelector(
   appState,
-  (state : AppState) => state.contactRequestLoading
+  (state: AppState) => state.contactRequestLoading
 )
 
 export const getContactRequestSuccess = createSelector(
   appState,
-  (state : AppState) => state.contactRequestSuccess
+  (state: AppState) => state.contactRequestSuccess
 )

@@ -1,16 +1,24 @@
-<section [id]="sectionId" class="flex flex-col justify-center lg:h-screen px-0 py-5 sm:px-5 sm:py-10 lg:pl-0 xl:pl-5 pt-20">
+<section [id]="sectionId"
+  class="flex flex-col justify-center lg:h-screen px-0 py-5 sm:px-5 sm:py-10 lg:pl-0 xl:pl-5 pt-20">
   <aj-section-title title="Some works" class="mt-auto"></aj-section-title>
-  <div class="list mb-auto mt-10 lg:mt-5">
+  <div class="list mb-auto mt-10 lg:mt-5" #list>
     <div class="project flex flex-col border border-gray-400" *ngFor="let project of projects$ | async">
       <img [src]="project.image" class="p-px">
       <div class="flex justify-start border-y border-gray-400 px-2 lg:px-0 xl:px-2 py-1.5">
-          <aj-tech-icon *ngFor="let tech of project.techs; let i = index" [tech]="tech" class="px-2 lg:px-1 xl:px-2 border-gray-400" [ngClass]="{'border-l': i % 5 != 0}"></aj-tech-icon>
+        <aj-tech-icon *ngFor="let tech of project.techs; let i = index" [tech]="tech"
+          class="px-2 lg:px-1 xl:px-2 border-gray-400" [ngClass]="{'border-l': i % 5 != 0}"></aj-tech-icon>
       </div>
       <div class="flex flex-col p-2 h-full">
         <h6 class="font-medium text-white">{{ project.title }}</h6>
-        <p class=" font-light text-sm lg:text-xs xl:text-sm mt-2" *ngFor="let description of project.description">{{ description }}</p>
+        <p class=" font-light text-sm lg:text-xs xl:text-sm mt-2 xl:mt-0 2xl:mt-2 "
+          *ngFor="let description of project.description">{{ description }}</p>
       </div>
-      <a *ngIf="project.link" [href]="project.link" class="transform duration-150 ease-linear justify-self-end px-4 py-1 border border-green-500 hover:text-white hover:bg-green-500 hover:bg-opacity-10 self-end mr-2 mb-2" target="_blank">Visit</a>
+      <a *ngIf="project.link" [href]="project.link"
+        class="transform duration-150 ease-linear justify-self-end px-4 py-1 border border-green-500 hover:text-white hover:bg-green-500 hover:bg-opacity-10 self-end mr-2 mb-2"
+        target="_blank">Visit</a>
+    </div>
+    <div class="bg-gr" [ngClass]="scrollToTop ? 'top-20 transform rotate-180' : ' bottom-11' " (click)="scroll()">
+      <mat-icon class="text-4xl !w-fit !h-fit transform translate-y-2">expand_more</mat-icon>
     </div>
   </div>
 </section>

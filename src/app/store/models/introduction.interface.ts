@@ -1,0 +1,1 @@
+export const pdfIntro = "I'm a software developer specialized & experienced in full-stack web & hybrid mobile apps development.\nI have acquired and developed many soft & hard skills over the course of {YEARS_OF_EXPERIENCE} years of my professional career\nas well as my educational path, which makes me a great fit in many software engineering positions."

@@ -6,6 +6,7 @@ export interface SocialLink {
   username: string,
   link: string,
   icon: IconDefinition,
+  pdfUsername?: string,
   copiable?: boolean
 }
 
@@ -25,13 +26,13 @@ const tel: SocialLink = {
   copiable: true
 }
 
-const tel2: SocialLink = {
-  platform: 'tel2',
-  username: '+212614437859',
-  link: 'tel:+212614437859',
-  icon: faPhone,
-  copiable: true
-}
+// const tel2: SocialLink = {
+//   platform: 'tel2',
+//   username: '+212614437859',
+//   link: 'tel:+212614437859',
+//   icon: faPhone,
+//   copiable: true
+// }
 
 const Linkedin: SocialLink = {
   platform: 'Linkedin',
@@ -57,7 +58,8 @@ const github: SocialLink = {
 const whatsapp: SocialLink = {
   platform: 'whatsapp',
   username: '~Achraf',
-  link: 'https://wa.me/+212614437859',
+  pdfUsername: '+212700258339 ~Achraf',
+  link: 'https://wa.me/+212700258339',
   icon: faWhatsapp
 }
 
@@ -68,6 +70,8 @@ const discord: SocialLink = {
   icon: faDiscord
 }
 
-export const allSocialLinks: SocialLink[] = [mail,tel,tel2,Linkedin,twitter,github,whatsapp,discord];
+export const allSocialLinks: SocialLink[] = [mail, tel, Linkedin, twitter, github, whatsapp, discord];
 
-export const socialLinks: SocialLink[] = [Linkedin,twitter,github];
+export const pdfLinks: SocialLink[] = [mail, tel, Linkedin, twitter, github, whatsapp];
+
+export const socialLinks: SocialLink[] = [Linkedin, twitter, github];

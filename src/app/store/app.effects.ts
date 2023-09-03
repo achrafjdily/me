@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { catchError, map, of, switchMap } from "rxjs";
+import { catchError, map, of, switchMap, tap } from "rxjs";
 import { environment } from "../../environments/environment.development";
 import { AppApiActions, AppPageActions } from "./actions";
 import { ContactRequest } from "./models/contact-request.interface";
@@ -9,7 +10,7 @@ import { AppService } from "./service/app.service";
 @Injectable()
 export class AppEffects {
 
-  constructor(private actions$: Actions, private appService: AppService) { }
+  constructor(private actions$: Actions, private appService: AppService, private router: Router) { }
 
   requestContact$ = createEffect(() => {
     return this.actions$.pipe(
@@ -28,6 +29,15 @@ export class AppEffects {
             return of(AppApiActions.requestContactFailure({ error }));
           })
         )
+      })
+    )
+  })
+
+  sectionChanged$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(AppPageActions.sectionChanged),
+      tap((action) => {
+        this.router.navigate(['.'], { fragment: action.section.anchor })
       })
     )
   })

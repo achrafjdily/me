@@ -14,8 +14,10 @@ import { appReducer } from './store/app.reducer';
 import { DotsComponent } from './shapes/dots/dots.component';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 
-import { register } from 'swiper/element/bundle';
+import { SwiperModule } from 'swiper/angular';
 import { NgHcaptchaModule } from 'ng-hcaptcha';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { InViewportModule } from 'ng-in-viewport';
 
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
@@ -92,6 +94,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SwiperModule,
+    NgxPageScrollCoreModule,
+    InViewportModule,
     NgHcaptchaModule.forRoot({
       siteKey: environment.hcaptchaKey,
     }),
@@ -105,6 +110,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 })
 export class AppModule {
   constructor() {
-    register();
+    // register();
   }
 }

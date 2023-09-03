@@ -1,13 +1,14 @@
 import { ViewportScroller } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, HostListener, Inject, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { AfterViewInit, Component, ElementRef, HostListener, Inject, Renderer2, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Swiper } from "swiper";
+import { Mousewheel, Swiper, SwiperOptions } from "swiper";
 import { AppPageActions } from './store/actions';
 import { getCurrentSection } from './store/app.selectors';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { SwiperContainer } from 'swiper/element';
+import { filter, first, Observable, skip, take } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
+import { PageScrollService } from 'ngx-page-scroll-core';
 
 @Component({
   selector: 'app-root',
@@ -16,82 +17,80 @@ import { SwiperContainer } from 'swiper/element';
 })
 export class AppComponent implements AfterViewInit {
 
-  @ViewChild('swiper') swiperElement!: ElementRef<SwiperContainer>;
+  @ViewChild('swiper') swiperContainer!: ElementRef<HTMLDivElement>;
 
   private swiper!: Swiper;
 
   private layoutChange!: Observable<BreakpointState>;
 
-  private swiperParams = {
-    loop: true,
-    direction: 'vertical',
-    mousewheel: true
-  };
+  public readonly swiperParams!: SwiperOptions;
 
-  constructor(private store: Store, private route: ActivatedRoute, private scroller: ViewportScroller, private breakpointObserver: BreakpointObserver) {
+  constructor(private store: Store, private route: ActivatedRoute, private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: Document, private breakpointObserver: BreakpointObserver, private renderer: Renderer2, private router: Router) {
+
+    Swiper.use([Mousewheel])
+
     this.layoutChange = this.breakpointObserver.observe('(min-width: 1024px)');
+
+    this.swiperParams = {
+      loop: false,
+      direction: 'vertical',
+      mousewheel: true,
+      autoHeight: true,
+      slidesPerView: 1,
+      on: {
+        slideChange: (swiper: Swiper) => {
+          // console.log(swiper.activeIndex)
+          this.store.dispatch(AppPageActions.setSection({ section: this.swiper.activeIndex }))
+        }
+      }
+    };
   }
 
   ngAfterViewInit(): void {
 
-
-    // setTimeout(() => {
-    //   document.querySelectorAll('#introduction').forEach( item => {
-    //     console.dir(item)
-    //   })
-    //   document.querySelectorAll('#contact').forEach( item => {
-    //     console.dir(item)
-    //   })
-    //   // console.log()
-    // }, 2000);
-
-    this.route.fragment.subscribe(fragment => {
-      if (fragment != null && fragment != '') {
-        // history.scrollRestoration = "manual"
-        this.store.dispatch(AppPageActions.setSection({ section: fragment }))
-      }
-    })
-
-    this.swiper = <Swiper>this.swiperElement.nativeElement.swiper
-    this.swiper.on('slideChange', () => {
-      // this.store.dispatch(AppPageActions.setSection({ section: this.swiper.activeIndex }))
-      console.log(this.swiper)
-    });
+    history.scrollRestoration = 'manual'
 
     this.layoutChange.subscribe(breakPointState => {
       if (!breakPointState.matches) {
-        if (this.swiper) this.swiper.destroy(false, false);
-      } else {
-        // Object.assign(this.swiperElement.nativeElement, this.swiperParams)
+        if (this.swiper) this.swiper.destroy(true, false)
+        else {
+          this.initSwiper()
+          // @ts-ignore
+          this.swiper.destroy(true, false)
+        }
 
-        // console.dir(this.swiperElement.nativeElement)
-
-        setTimeout(() => {
-          this.swiperElement.nativeElement.initialize()
-        }, 10);
-
-        // this.swiper.init()
-        // this.swiper.on('slideChange', () => {
-        //   // this.store.dispatch(AppPageActions.setSection({ section: this.swiper.activeIndex }))
-        //   console.log(this.swiper)
-        // });
-        // this.swiperElement.nativeElement.initialize();
+        this.renderer.removeStyle(this.swiperContainer.nativeElement.firstChild, 'transform')
+        this.renderer.removeStyle(this.swiperContainer.nativeElement.firstChild, 'height')
       }
+      else this.initSwiper()
+    })
+
+
+    this.route.fragment.pipe(filter(fragment => fragment != null && fragment != ''), first()).subscribe(fragment => {
+      this.store.dispatch(AppPageActions.setSection({ section: <string>fragment }))
     })
 
     this.store.select(getCurrentSection)
       .subscribe(
         currentSection => {
-          // this.swiper.slideTo(currentSection.index)
-
           setTimeout(() => {
-            this.scroller.scrollToAnchor(currentSection.section.anchor)
-            // document.children?.item(0)?.children?.item(2)?.children?.item(0)?.children?.item(0)?.children?.item(1)?.children?.item(2)?.children?.item(0)?.children?.item(1)?.children?.item(currentSection.index)?.children?.item(0)?.scrollIntoView({
-            //   behavior: "smooth",
-            //   block: "start",
-            // })
+            if (!this.swiper.destroyed) this.swiper.slideTo(currentSection.index)
+
+            else this.pageScrollService.scroll({
+              document: this.document,
+              scrollTarget: '#' + currentSection.section.anchor,
+              duration: 400
+            });
           }, 150);
         }
       )
   }
+
+  initSwiper() {
+    this.swiper = new Swiper(this.swiperContainer.nativeElement, this.swiperParams)
+  }
+
+  // sectionInViewPort(event: any) {
+  //   console.log(event)
+  // }
 }

@@ -1,14 +1,24 @@
 .list {
-  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-4 lg:gap-2 xl:gap-4;
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-4 lg:gap-2 2xl:gap-4 xl:h-[90%] 2xl:h-auto xl:overflow-y-hidden 2xl:overflow-y-auto xl:pb-11 2xl:pb-0 relative;
   .project {
-    @apply lg:col-span-3 h-full;
+    @apply lg:col-span-3 h-full relative;
 
     &:first-child {
       @apply col-span-1 sm:col-span-2 lg:col-span-5;
     }
 
-    &:nth-child(2){
+    &:nth-child(2) {
       @apply lg:col-span-4;
+    }
+  }
+  .bg-gr {
+    @apply fixed w-full z-10 text-center cursor-pointer hidden xl:block 2xl:hidden;
+
+    background: rgb(22, 22, 22);
+    background: linear-gradient(0deg, rgba(22, 22, 22, 1) 80%, rgba(255, 255, 255, 0) 100%);
+    &:hover {
+      background: rgb(63, 63, 63);
+      background: linear-gradient(0deg, rgba(63, 63, 63, 1) 80%, rgba(255, 255, 255, 0) 100%);
     }
   }
 }

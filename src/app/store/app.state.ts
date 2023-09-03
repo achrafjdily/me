@@ -7,19 +7,20 @@ import { CurrentSection, Section, sections } from "./models/section.interface";
 import { langs } from "./models/lang.interface";
 import { Testimonial, testimonials } from "./models/testimonial.interface";
 
-export interface ExperienceStats {
-  years: string,
-  contributions: string,
-  projects: string
+export interface ExperienceStat {
+  title: string,
+  value: string,
+  replaceableSlug: string
 }
 
 export interface AppState {
+  hiringAvailability: boolean,
   socialLinks: Array<SocialLink>,
   allSocialLinks: Array<SocialLink>,
   sections: Section[],
   langs: Array<any>,
   selectedLang: any,
-  experienceStats: ExperienceStats,
+  experienceStats: ExperienceStat[],
   eduTimeLine: TimeLineItem[],
   expTimeLine: TimeLineItem[],
   techs: TechItem[],
@@ -31,6 +32,7 @@ export interface AppState {
 }
 
 export const initialState: AppState = {
+  hiringAvailability: true,
   socialLinks: socialLinks,
   allSocialLinks: allSocialLinks,
   sections: sections,

@@ -1,11 +1,11 @@
-<section [id]="sectionId" class="flex flex-col justify-center lg:h-screen px-0 py-5 sm:px-5 sm:py-10 pt-20">
+<section [id]="sectionId" class="flex flex-col justify-center lg:h-screen px-0 py-5 sm:px-5 sm:py-10 xl:py-2 2xl:py-10 pt-20">
   <aj-section-title title="Contact" class="mt-auto"></aj-section-title>
-  <div class="grid grid-cols-1 sm:grid-cols-7 gap-y-10 sm:gap-y-0 gap-x-0 sm:gap-x-7 lg:gap-x-4 xl:gap-x-16 mb-auto mt-6 sm:mt-10 px-2.5 sm:px-0">
+  <div class="grid grid-cols-1 sm:grid-cols-7 gap-y-10 sm:gap-y-0 gap-x-0 sm:gap-x-7 lg:gap-x-4 xl:gap-x-16 mb-auto mt-6 sm:mt-10 xl:mt-0 2xl:mt-10 px-2.5 sm:px-0">
     <div class="hidden sm:block sm:col-start-4 sm:col-span-4">
       <h4 class="text-2xl text-green-500 font-bold">Contact me</h4>
       <p class="text-sm">Please provide a valid email so I can reach you back</p>
     </div>
-    <div class="list mt-8">
+    <div class="list mt-8 xl:mt-2 2xl:mt-8">
       <a class="social-link group" *ngFor="let socialLink of socialLinks$ | async" [href]="socialLink.link"
         target="_blank">
         <fa-icon [icon]="socialLink.icon" class="group-hover:!text-green-400" size="lg"></fa-icon>
@@ -22,7 +22,7 @@
         <h4 class="text-2xl text-green-500 font-bold">Contact me</h4>
         <p class="text-sm">Please provide a valid email so I can reach you back</p>
       </div>
-      <div class="w-full flex flex-col mt-2 sm:mt-8">
+      <div class="w-full flex flex-col mt-2 sm:mt-8 xl:mt-2 2xl:mt-8">
         <mat-form-field appearance="outline" class="aj-field">
           <mat-label>Full name</mat-label>
           <input matInput placeholder="Full name" type="text" class="!text-base" formControlName="fullname">
@@ -59,7 +59,7 @@
         </mat-form-field>
         <ng-hcaptcha formControlName="captcha"></ng-hcaptcha>
         <mat-error *ngIf="contactForm.get('captcha')?.hasError('required')">Captcha test must be passed</mat-error>
-        <button mat-flat-button color="primary" class="!rounded-none mt-4" type="submit"
+        <button mat-flat-button color="primary" class="!rounded-none mt-4 xl:mt-1 2xl:mt-4" type="submit"
           [disabled]="contactRequestLoading$ | async">
           <span class="text-white" *ngIf="!(contactRequestLoading$ | async);else spinner">Submit</span>
           <ng-template #spinner>

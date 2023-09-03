@@ -8,7 +8,7 @@
         <p class="mt-5">I'm a software engineer specialized & experienced in <br class="hidden sm:block"> full stack web
           & hybrid mobile apps development</p>
         <div class="flex flex-wrap gap-4 mt-5 sm:mt-16">
-          <a mat-stroked-button color="accent">Contact me</a>
+          <button mat-stroked-button color="accent" (click)="goToContactSection()">Contact me</button>
           <button mat-flat-button color="primary">
             <p class=" !text-cod-gray-500">My resume</p>
           </button>
@@ -20,7 +20,11 @@
       <aj-desktop class="w-fill max-w-xs lg:hidden xl:block"></aj-desktop>
     </div>
     <div class="grid grid-cols-3 sm:flex gap-4 sm:gap-20" *ngIf="expStats$ | async as expStats">
-      <div class="flex flex-col">
+      <div class="flex flex-col" *ngFor="let expStat of expStats$ | async">
+        <p class=" text-green-400 text-5xl sm:text-7xl">{{ expStat.value }}</p>
+        <h3 class="text-xs sm:text-lg font-light uppercase">{{ expStat.title }}</h3>
+      </div>
+      <!-- <div class="flex flex-col">
         <p class=" text-green-400 text-5xl sm:text-7xl">{{ expStats.years }}</p>
         <h3 class="text-xs sm:text-lg font-light uppercase">YEARS OF EXPERIENCE</h3>
       </div>
@@ -31,7 +35,7 @@
       <div class="flex flex-col">
         <p class=" text-green-400 text-5xl sm:text-7xl">{{ expStats.contributions }}</p>
         <h3 class="text-xs sm:text-lg font-light uppercase">Contributions</h3>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>

@@ -1,0 +1,7 @@
+export const green500: string = "rgb(21,128,61)"
+export const green500Hex: string = "#15803d"
+export const cod500: string = "#161616"
+export const greyLines: string = "#d0d0d0"
+export const greyText: string = "#535353"
+export const white: string = "#fff"
+// export const green: string = ""

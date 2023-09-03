@@ -8,6 +8,11 @@ export interface TechItem {
   isSimpleIcon?: boolean
 }
 
+export interface TechByCategory {
+  category: string,
+  techs: TechItem[]
+}
+
 export const angular: TechItem = {
   icon: faAngular,
   name: "Angular"
@@ -107,4 +112,23 @@ export const microservices: TechItem = {
   isSimpleIcon: true
 }
 
-export const allTechs: TechItem[] = [php, laravel, js, ts, angular,ngrx, vue, alpineJs, ionic,tailwindcss,mysql,postgres, docker, restApi, microservices]
+export const allTechs: TechItem[] = [php, laravel, js, ts, angular, ngrx, vue, alpineJs, ionic, tailwindcss, mysql, postgres, docker, restApi, microservices]
+
+export const techsByCategories: TechByCategory[] = [
+  {
+    category: 'Backend',
+    techs: [php, laravel, restApi, microservices],
+  },
+  {
+    category: 'Frontend',
+    techs: [js, ts, angular, ngrx, vue, alpineJs, tailwindcss],
+  },
+  {
+    category: 'DBMS',
+    techs: [mysql, postgres],
+  },
+  {
+    category: 'Other tools',
+    techs: [git, docker, gitlab, github]
+  }
+]

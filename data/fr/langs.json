@@ -1,0 +1,23 @@
+{
+  "title": "Langues",
+  "data": [
+    {
+      "abbrv": "en",
+      "name": "Englais",
+      "level": "Usage professionnel et courant",
+      "icon": "https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.7.0/flags/4x3/gb.svg"
+    },
+    {
+      "abbrv": "fr",
+      "name": "Français",
+      "level": "Usage professionnel et courant",
+      "icon": "https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.7.0/flags/4x3/fr.svg"
+    },
+    {
+      "abbrv": "ar",
+      "name": "Arabe",
+      "level": "Langue maternelle",
+      "icon": "https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.7.0/flags/4x3/sa.svg"
+    }
+  ]
+}

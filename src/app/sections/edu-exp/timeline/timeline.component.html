@@ -6,7 +6,7 @@
       </div>
       <div class="h-full border-r border-gray-400 absolute top-1 left-1/2 translate-x-1/2"></div>
     </div>
-    <article class="flex flex-col pb-8">
+    <article class="flex flex-col pb-8 xl:pb-4 2xl:pb-8 xl:flex-grow">
       <p class="text-gray-400 italic text-sm">{{ item.start.format('MMMM YYYY') }}
         <ng-container *ngIf="item.end">
           - {{ item.end.format('MMMM YYYY') }}
@@ -20,9 +20,9 @@
           - {{ item.job.time }} {{ item.job.remote ? "( Remote )" : null }}
         </ng-container>
       </p>
-      <div class="flex flex-col items-start gap-1 mt-2" *ngIf="item.techs && item.techs.length > 0">
+      <div class="flex flex-col items-start gap-1 mt-2 xl:mt-0 2xl:mt-2" *ngIf="item.techs && item.techs.length > 0">
         <p class=" flex-shrink-0">Techs & Tools : </p>
-        <div class="grid grid-cols-5 gap-y-1">
+        <div class="grid grid-cols-5 xl:grid-cols-8 2xl:grid-cols-5 gap-y-1 xl:w-full">
           <aj-tech-icon *ngFor="let tech of item.techs; let i = index" [tech]="tech" class="px-2" [ngClass]="{'border-l': i % 5 != 0}"></aj-tech-icon>
         </div>
       </div>

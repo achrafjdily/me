@@ -1,5 +1,5 @@
 <aside
-  class="relative flex flex-col sm:h-fill my-14 px-5 pt-5 border-r border-gray-400 justify-center w-72 sm:w-auto sm:max-w-sm lg:min-w-[22rem] ">
+  class="relative flex flex-col sm:h-fill my-14 xl:my-2 2xl:my-14 px-5 pt-5 border-r border-gray-400 justify-center w-72 sm:w-auto sm:max-w-sm lg:min-w-[22rem] ">
   <header class="flex justify-between w-full border-t pt-5 border-gray-400">
     <app-white-full-text-logo class="w-20"></app-white-full-text-logo>
     <h2 class="p-0 text-right max-w-[113px] text-sm sm:text-lg">Full Stack web developer</h2>
@@ -11,23 +11,27 @@
     <aj-dots class=" w-12 absolute z-20 fill-cod-gray-600 top-[58%] sm:top-2/4 left-0 sm:left-14"></aj-dots>
 
     <img src="/assets/imgs/me.png" class="w-full sm:w-2/3 mx-auto z-10 relative">
-    <div
-      class="border border-white py-2 px-2.5 bg-cod-gray-500 z-20 absolute bottom-2 w-full sm:w-9/12 flex flex-col left-0 right-0 mx-auto">
+    <div *ngIf="hiringAvailability$ | async"
+      class="border border-white py-2 px-2.5 bg-cod-gray-500 z-20 absolute bottom-2 w-full sm:w-9/12 xl:w-10/12 2xl:w-9/12 flex flex-col left-0 right-0 mx-auto">
       <div class="flex items-center gap-2">
         <span class=" w-3 h-3 bg-green-500"></span>
         <h3 class="text-xs sm:text-base leading-none">Currently available for work</h3>
       </div>
     </div>
   </div>
-  <button mat-flat-button color="primary" class="w-9/12 mx-auto !rounded-none" (click)="goToContactSection($event)">
+  <button mat-flat-button color="primary" class="w-9/12 xl:w-10/12 2xl:w-9/12 mx-auto !rounded-none"
+    (click)="goToContactSection($event)" [ngClass]="{'transform -translate-y-8 z-20': !(hiringAvailability$ | async)}">
     <div class=" flex items-center gap-1">
       <mat-icon fontIcon="mail_outline" class=" !text-cod-gray-500"></mat-icon>
-      <span class="!text-cod-gray-500 leading-none">Hire me</span>
+      <span class="!text-cod-gray-500 leading-none">
+        <ng-container *ngIf="hiringAvailability$ | async;else hiringAvailabilityElseTemplate">Hire me</ng-container>
+        <ng-template #hiringAvailabilityElseTemplate>Contact me</ng-template>
+      </span>
     </div>
   </button>
 
   <div
-    class="relative z-10 flex flex-col gap-4 mt-4 sm:mt-10 ml-auto w-fit bg-cod-gray-500 transform translate-x-10 sm:translate-x-14 py-3.5 px-2 sm:!p-3.5">
+    class="relative z-10 flex flex-col gap-4 mt-4 sm:mt-10 xl:mt-2 2xl:mt-10 ml-auto w-fit bg-cod-gray-500 transform translate-x-10 sm:translate-x-14 py-3.5 px-2 sm:!p-3.5">
     <a class="flex relative border py-2 px-2.5 items-center  gap-2 flex-grow border-gray-400 group hover:bg-black hover:border-white"
       *ngFor="let socialLink of socialLinks$ | async" [href]="socialLink.link" target="_blank">
       <fa-icon [icon]="socialLink.icon" class="group-hover:!text-green-400" size="lg"></fa-icon>
@@ -35,7 +39,7 @@
     </a>
   </div>
 
-  <div class="absolute bottom-5 left-0 sm:relative flex gap-4 mt-5 mx-5 w-fill z-0">
+  <div class="absolute bottom-5 left-0 sm:relative flex gap-4 mt-5 w-fill z-0 xl:h-8 2xl:h-auto">
     <span class=" border-t border-gray-400 w-10 "></span>
     <aj-dots class=" w-16 transform -translate-y-3/4 fill-gray-400 flex-shrink-0"></aj-dots>
     <span class=" border-t border-gray-400 w-fill "></span>

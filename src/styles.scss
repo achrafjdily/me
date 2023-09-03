@@ -8,9 +8,8 @@
 
 @import "./assets/styles/dark.theme.scss";
 
-@import url('swiper/css/pagination');
-
-// @import "~swiper/scss/pagination";
+@import "swiper/scss";
+@import "swiper/css/mousewheel";
 
 @layer base {
   *:not(svg, fa-icon, path) {
