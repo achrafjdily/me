@@ -1,0 +1,105 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// Dark Theme text
+$light-text: #ffffff;
+$light-primary-text: $light-text;
+$light-accent-text: rgba($light-primary-text, 0.7);
+$light-disabled-text: rgba($light-primary-text, 0.5);
+$light-dividers: rgba($light-primary-text, 0.12);
+$light-focused: rgba($light-primary-text, 0.12);
+
+// Light Theme Text
+$dark-text: #161616;
+$dark-primary-text: rgba($dark-text, 0.87);
+$dark-accent-text: rgba($dark-primary-text, 0.54);
+$dark-disabled-text: rgba($dark-primary-text, 0.38);
+$dark-dividers: rgba($dark-primary-text, 0.12);
+$dark-focused: rgba($dark-primary-text, 0.12);
+
+$mat-primary: (
+  main: #22c55e,
+  lighter: #bdeecf,
+  darker: #14b042,
+  200: #22c55e, // For slide toggle,
+  contrast : (
+    main: $dark-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+
+$my-primary: mat.define-palette($mat-primary, main, lighter, darker);
+
+$mat-accent: (
+  main: #022c22,
+  lighter: #b3c0bd,
+  darker: #011b14,
+  200: #022c22, // For slide toggle,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+
+$my-accent: mat.define-palette($mat-accent, main, lighter, darker);
+
+$mat-warn: (
+  main: #d83232,
+  lighter: #f3c2c2,
+  darker: #c81f1f,
+  200: #d83232, // For slide toggle,
+  contrast : (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  )
+);
+
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette($mat-warn, main, lighter, darker);
+
+
+$fonts: mat.define-typography-config(
+  $headline-4: mat.define-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
+  $headline-3: mat.define-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
+  $headline-2: mat.define-typography-level(45px, 48px, 400, 'Roboto', 0.0000em),
+  $headline-1: mat.define-typography-level(34px, 40px, 400, 'Roboto', 0.0074em),
+  $headline-5: mat.define-typography-level(24px, 32px, 400, 'Roboto', 0.0000em),
+  $headline-6: mat.define-typography-level(20px, 32px, 500, 'Roboto', 0.0075em),
+  $subtitle-2: mat.define-typography-level(16px, 28px, 400, 'Roboto', 0.0094em),
+  $subtitle-1: mat.define-typography-level(15px, 24px, 500, 'Roboto', 0.0067em),
+  $body-2: mat.define-typography-level(14px, 24px, 500, 'Roboto', 0.0179em),
+  $body-1: mat.define-typography-level(14px, 20px, 400, 'Roboto', 0.0179em),
+  $button: mat.define-typography-level(14px, 14px, 500, 'Roboto', 0.0893em),
+  $caption: mat.define-typography-level(12px, 20px, 400, 'Roboto', 0.0333em),
+);
+
+$my-theme: mat.define-dark-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+   warn: $my-warn,
+ ),
+ typography: $fonts,
+ density: 0,
+));
+
+.aj-field{
+  @include mat.form-field-density(-2)
+}
+
+// Emit theme-dependent styles for common features used across multiple components.
+@include mat.core-theme($my-theme);
+
+// Emit styles for MatButton based on `$my-theme`. Because the configuration
+// passed to `define-light-theme` omits typography, `button-theme` will not
+// emit any typography styles.
+@include mat.button-theme($my-theme);
+
+// Include the theme mixins for other components you use here.
+
+// Theme Init
+@include mat.all-component-themes($my-theme);
