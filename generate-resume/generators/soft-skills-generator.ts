@@ -9,7 +9,7 @@ import { addTechs } from "../utils/images";
 import { margin, pageWidthWithMargins } from "../utils/dimensions";
 import langs from "../../data/en/langs.json";
 
-export default class LangsGenerator {
+export default class SoftSkillsGenerator {
 
   private jsPdf!: jsPDF;
 
@@ -17,17 +17,17 @@ export default class LangsGenerator {
 
   private lang!: lang;
 
-  private langs!: any;
+  private softSkills!: { title: string, data: string[] };
 
   constructor(jsPdf: jsPDF, lang: lang) {
     this.jsPdf = jsPdf
     this.lang = lang
   }
 
-  async generateLangs() {
+  async generateSoftSkills() {
     this.y += 18;
 
-    this.langs.data.forEach((lang: any) => {
+    this.softSkills.data.forEach((skill: string) => {
 
       this.jsPdf.setFillColor(greyText)
       this.jsPdf.circle(margin + 10, this.y, 2, "F")
@@ -35,7 +35,7 @@ export default class LangsGenerator {
       this.jsPdf.setFont('montserrat', 'medium')
       this.jsPdf.setFontSize(14)
       this.jsPdf.setTextColor(greyText);
-      this.jsPdf.text(`${lang.name} : ${lang.level}`, margin + 14, this.y, { align: "left", baseline: "middle" });
+      this.jsPdf.text(`${skill}`, margin + 14, this.y, { align: "left", baseline: "middle" });
 
       this.y += 14;
     });
@@ -44,11 +44,11 @@ export default class LangsGenerator {
   async generate(y: number) {
     this.y = y + 10;
 
-    this.langs = await import(`../../data/${this.lang}/langs.json`)
+    this.softSkills = await import(`../../data/${this.lang}/soft-skills.json`)
 
-    addTitle(this.jsPdf, this.langs.title, this.y)
+    addTitle(this.jsPdf, this.softSkills.title, this.y)
 
-    await this.generateLangs();
+    await this.generateSoftSkills();
 
     return this.y
   }

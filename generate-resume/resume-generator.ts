@@ -11,6 +11,8 @@ import ExperienceGenerator from "./generators/experience-generator";
 import EducationGenerator from "./generators/education-generator";
 import TechsGenerator from "./generators/techs-generator";
 import LangsGenerator from "./generators/langs-generator";
+import { lang } from "./utils/texts";
+import SoftSkillsGenerator from "./generators/soft-skills-generator";
 
 const { convert, convertFile } = require('convert-svg-to-png');
 
@@ -22,8 +24,11 @@ export class ResumeGenerator {
   private educationGenerator!: EducationGenerator;
   private techsGenerator!: TechsGenerator;
   private langsGenerator!: LangsGenerator;
+  private softSkillsGenerator!: SoftSkillsGenerator;
 
-  constructor() {
+  private lang!: lang;
+
+  constructor(lang: lang) {
     this.jsPdf = new jsPDF({
       unit: 'px',
       format: 'a4',
@@ -31,14 +36,17 @@ export class ResumeGenerator {
       precision: 1,
     })
 
+    this.lang = lang;
+
     this.initFonts();
 
-    this.headerGenerator = new HeaderGenerator(this.jsPdf)
-    this.introductionGenerator = new IntroductionGenerator(this.jsPdf)
-    this.experienceGenerator = new ExperienceGenerator(this.jsPdf)
-    this.educationGenerator = new EducationGenerator(this.jsPdf)
-    this.techsGenerator = new TechsGenerator(this.jsPdf)
-    this.langsGenerator = new LangsGenerator(this.jsPdf,'fr')
+    this.headerGenerator = new HeaderGenerator(this.jsPdf, lang)
+    this.introductionGenerator = new IntroductionGenerator(this.jsPdf, lang)
+    this.experienceGenerator = new ExperienceGenerator(this.jsPdf, lang)
+    this.educationGenerator = new EducationGenerator(this.jsPdf, lang)
+    this.techsGenerator = new TechsGenerator(this.jsPdf, lang)
+    this.langsGenerator = new LangsGenerator(this.jsPdf, lang)
+    this.softSkillsGenerator = new SoftSkillsGenerator(this.jsPdf, lang)
 
   }
 
@@ -54,7 +62,16 @@ export class ResumeGenerator {
 
     y = await this.langsGenerator.generate(y + 10)
 
-    this.jsPdf.save('./src/assets/resume.pdf')
+    y = await this.softSkillsGenerator.generate(y + 10)
+
+    const name = {
+      fr: 'Achraf JDILY',
+      en: 'Ashraf JDILY',
+      ar: 'أشرف اجديلي'
+    }
+
+    this.jsPdf.save(`./src/assets/${name[this.lang]}-resume-${this.lang}.pdf`)
+    console.log(`${this.lang} resume generated !`)
   }
 
   initFonts() {

@@ -132,3 +132,24 @@ export const techsByCategories: TechByCategory[] = [
     techs: [git, docker, gitlab, github]
   }
 ]
+
+export const allTechsMap = {
+  angular: angular,
+  ngrx: ngrx,
+  php: php,
+  vue: vue,
+  laravel: laravel,
+  js: js,
+  ts: ts,
+  git: git,
+  github: github,
+  gitlab: gitlab,
+  docker: docker,
+  mysql: mysql,
+  postgres: postgres,
+  alpineJs: alpineJs,
+  ionic: ionic,
+  tailwindcss: tailwindcss,
+  restApi: restApi,
+  microservices: microservices
+}

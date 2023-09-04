@@ -6,11 +6,11 @@ import { ExperienceStat } from "../../src/app/store/app.state";
 import { cod500, green500, greyLines, greyText, white } from "../utils/colors";
 import { addImage, addSimpleIcon, addSvg, addTechs } from "../utils/images";
 import ExperienceStatsData from "../../src/app/data/sections/experience_stats.json";
-import { Moment } from "moment";
-import { eduTimeLine, expTimeLine, TimeLineItem } from "../../src/app/store/models/timeline-item.interface";
+import moment, { Moment } from "moment";
+import { TimeLineItem } from "../../src/app/store/models/timeline-item.interface";
 import { ngrx } from "../../src/app/store/models/tech-item.interface";
-import { pageHeight, pageHeightWithMargins, pageWidth, pageWidthWithMargins } from "../utils/dimensions";
-import { addTitle } from "../utils/texts";
+import { margin, pageHeight, pageHeightWithMargins, pageWidth, pageWidthWithMargins } from "../utils/dimensions";
+import { addTitle, lang } from "../utils/texts";
 
 export default class EducationGenerator {
 
@@ -18,21 +18,27 @@ export default class EducationGenerator {
 
   private y!: number;
 
-  constructor(jsPdf: jsPDF) {
+  private lang!: lang;
+
+  private eduTimeLine!: { title: string, data: TimeLineItem[] };
+
+
+  constructor(jsPdf: jsPDF, lang: lang) {
     this.jsPdf = jsPdf
+    this.lang = lang
   }
 
   async generateExperiences() {
 
     this.y += 20
 
-    for (let i = 0; i < eduTimeLine.length; i++) {
+    for (let i = 0; i < this.eduTimeLine.data.length; i++) {
       if (pageHeightWithMargins <= this.y) {
         this.y = 20;
         this.jsPdf.addPage('a4')
       }
 
-      this.y = await this.generateExperience(eduTimeLine[i], this.y)
+      this.y = await this.generateExperience(this.eduTimeLine.data[i], this.y)
     }
 
     return this.y
@@ -104,7 +110,25 @@ export default class EducationGenerator {
 
     this.y = y + 10;
 
-    addTitle(this.jsPdf, 'EDUCATION', this.y)
+    const data = (await import(`../../data/${this.lang}/sections/edu.json`))
+
+    this.eduTimeLine = {
+      title: data.title,
+      data: data.data.map((item: any): TimeLineItem => {
+        return {
+          ...item,
+          start: moment(item.start),
+          end: moment(item.end),
+        }
+      })
+    }
+
+    if (pageHeightWithMargins - this.y < margin) {
+      this.y = margin;
+      this.jsPdf.addPage('a4')
+    }
+
+    addTitle(this.jsPdf, this.eduTimeLine.title, this.y)
 
     return await this.generateExperiences();
   }

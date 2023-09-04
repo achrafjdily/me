@@ -25,9 +25,10 @@
       "tasks": [
         "Collaborated and built a real estate rentals platform that automates and eases the rental process with multiple features like generation of rental agreements, complex financial accounting and payments tracking. Led many architectural and engineering decisions throughout the project",
         "Collaborated in the development of a Saas platform providing multiple services to real estate developers. Helped with system design and code refactoring. Solely developed and led severals decisions in some parts of the platform and its subprojects and features like making of financial balance sheet auto calculator by implementing complex calculations in user-friendly spreadsheet-like interfaces. Contributed on the development of other complex and advanced features such as multi-layered maps with some 3d layers.",
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-        "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
-        "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness."
+        "Analysed requirements, wrote tasks and issues and actively helped manage and estimate the projects.",
+        "Helped deploy and monitor several apps and websites and intervened with hotfixes and QFE update even in off-work hours.",
+        "Helped and Contributed on the making of user-friendly UX/UI designs, and interactive tutorials for the company apps.",
+        "Closely worked with the project manager and the product owner"
       ]
     },
     {
@@ -50,7 +51,14 @@
       "job": {
         "remote": true,
         "time": "Part time"
-      }
+      },
+      "tasks": [
+        "Built a real estate search and matching platform to ease & simplify real estate searching for end-users.",
+        "Implemented advanced filtering & accurate suggesting systems by utilizing matching calculations based on user-intered data.",
+        "Refactored the existing code and built end-users and admin panels UI.",
+        "Analysed requirements, prioritized tasks and milestones, mentored & helped team members to use project management tools.",
+        "Setup linux server, deployed the platform, managed and monitored the software and hardware required infrastructure."
+      ]
     },
     {
       "start": "2021-04",
@@ -59,7 +67,7 @@
         "name": "Moenn",
         "link": "https://moenn-technologies.com"
       },
-      "title": "Angular Frontend web developer",
+      "title": "Lead Angular Frontend developer",
       "techs": [
         "ts",
         "angular",
@@ -69,7 +77,12 @@
       "job": {
         "remote": true,
         "time": "Part time"
-      }
+      },
+      "tasks": [
+        "Laid the architecture and foundation of frontend apps including main features.",
+        "Helped and mentored trainees about Angular, Rxjs and Ngrx with redux patterns.",
+        "Coordinated work of front-end and back-end dev teams"
+      ]
     },
     {
       "start": "2019-08",
@@ -91,7 +104,15 @@
       "job": {
         "remote": false,
         "time": "Full time"
-      }
+      },
+      "tasks": [
+        "Laid the architecture and foundation of frontend and hybrid mobile apps.",
+        "Created Frontend admin app as well as multiple responsive web apps for the clients and end-users.",
+        "Created two cross-platform mobile apps (in Ionic Framework for Android and iOS).",
+        "Helped and mentored team members about Angular and Typescript.",
+        "Engaged in research and development to find the best tools and solutions for several use cases.",
+        "Collaborated with the UI/UX design team to make good looking and user-friendly UI interfaces."
+      ]
     }
   ]
 }

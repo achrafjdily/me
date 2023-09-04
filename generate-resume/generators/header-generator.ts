@@ -3,13 +3,18 @@ import jsPDF from "jspdf";
 import { pdfLinks } from "../../src/app/store/models/social-link.interface";
 import { cod500, green500, greyLines, greyText } from "../utils/colors";
 import { addFaIcon, addImage, addSvg } from "../utils/images";
+import { lang } from "../utils/texts";
 
 export default class HeaderGenerator {
 
   private jsPdf!: jsPDF;
+  private lang!: lang;
 
-  constructor(jsPdf: jsPDF) {
+  private data!: { name: string, location: string, title: string }
+
+  constructor(jsPdf: jsPDF, lang: lang) {
     this.jsPdf = jsPdf
+    this.lang = lang;
   }
 
 
@@ -18,7 +23,7 @@ export default class HeaderGenerator {
     this.jsPdf.setFont('montserrat', 'regular')
     this.jsPdf.setFontSize(32)
     this.jsPdf.setTextColor(cod500)
-    this.jsPdf.text('ACHRAF', 120, 20, { align: "left", baseline: "top" })
+    this.jsPdf.text(this.data.name, 120, 20, { align: "left", baseline: "top" })
     this.jsPdf.setFont('montserrat', 'extrabold')
     this.jsPdf.setTextColor(green500)
     this.jsPdf.text('JDILY', 228, 20, { align: "left", baseline: "top" })
@@ -26,7 +31,7 @@ export default class HeaderGenerator {
     this.jsPdf.setFont('montserrat', 'medium')
     this.jsPdf.setFontSize(14)
     this.jsPdf.setTextColor(cod500)
-    this.jsPdf.text('Full-Stack web & hybrid mobile apps developer', 120, 45, { align: "left", baseline: "top" })
+    this.jsPdf.text(this.data.title, 120, 45, { align: "left", baseline: "top" })
   }
 
   async generateLinks() {
@@ -73,10 +78,13 @@ export default class HeaderGenerator {
     this.jsPdf.setFont('helvetica', 'normal')
     this.jsPdf.setFontSize(12)
 
-    this.jsPdf.text('Casablanca, Morocco', 134, 69, { align: "left", baseline: 'middle' })
+    this.jsPdf.text(this.data.location, 134, 69, { align: "left", baseline: 'middle' })
   }
 
   async generate() {
+
+    this.data = await import(`../../data/${this.lang}/sections/header.json`)
+
     this.generateProfile();
     await this.generateLinks();
   }

@@ -6,31 +6,43 @@ import { ExperienceStat } from "../../src/app/store/app.state";
 import { cod500, green500, greyLines, greyText, white } from "../utils/colors";
 import { addImage, addSimpleIcon, addSvg, addTechs } from "../utils/images";
 import ExperienceStatsData from "../../src/app/data/sections/experience_stats.json";
-import { Moment } from "moment";
-import { expTimeLine, TimeLineItem } from "../../src/app/store/models/timeline-item.interface";
-import { ngrx } from "../../src/app/store/models/tech-item.interface";
-import { pageHeight, pageHeightWithMargins, pageWidth } from "../utils/dimensions";
-import { addTitle } from "../utils/texts";
+import moment, { Moment } from "moment";
+import { TimeLineItem } from "../../src/app/store/models/timeline-item.interface";
+import { allTechsMap, ngrx, TechItem } from "../../src/app/store/models/tech-item.interface";
+import { pageHeight, pageHeightWithMargins, pageWidth, margin } from "../utils/dimensions";
+import { addTitle, highlighter, lang } from "../utils/texts";
 
 export default class ExperienceGenerator {
 
   private jsPdf!: jsPDF;
 
-  constructor(jsPdf: jsPDF) {
+  private lang!: lang;
+
+  private expTimeLine!: { title: string, data: TimeLineItem[] };
+
+  constructor(jsPdf: jsPDF, lang: lang) {
     this.jsPdf = jsPdf
+    this.lang = lang
   }
 
   async generateExperiences() {
 
-    let y = 210;
+    let y = 260;
 
-    for (let i = 0; i < expTimeLine.length; i++) {
-      if (pageHeightWithMargins <= y) {
-        y = 20;
+    for (let i = 0; i < this.expTimeLine.data.length; i++) {
+      if (pageHeightWithMargins - y < 150) {
+        this.jsPdf.setFillColor(green500)
+        this.jsPdf.rect(159, y, 2, pageHeight)
+
+        y = margin;
         this.jsPdf.addPage('a4')
+
+        this.jsPdf.setFillColor(green500)
+        this.jsPdf.rect(159, 0, 2, y)
+
       }
 
-      y = await this.generateExperience(expTimeLine[i], y)
+      y = await this.generateExperience(this.expTimeLine.data[i], y)
     }
 
     return y
@@ -92,7 +104,7 @@ export default class ExperienceGenerator {
 
       const taskDims = this.jsPdf.getTextDimensions(task)
 
-      const count = ((task.match(/\n/g) || []).length) + 2;
+      const count = ((task.match(/\n/g) || []).length) + (((task.match(/\n/g) || []).length) >= 8 ? 3 : 2);
 
       startTasksY += (2 + (taskDims.h * count))
     })
@@ -109,17 +121,23 @@ export default class ExperienceGenerator {
     return formatted
   }
 
-  highlighter(x: number, y: number, w: number, h: number) {
-    this.jsPdf.saveGraphicsState();
-    this.jsPdf.setGState(new GState({ opacity: 0.5 }));
-    this.jsPdf.setFillColor('yellow')
-    this.jsPdf.rect(x, y, w, h, "F")
-    this.jsPdf.restoreGraphicsState();
-  }
-
   async generate() {
 
-    addTitle(this.jsPdf, 'EXPERIENCE', 190)
+    const data = (await import(`../../data/${this.lang}/sections/exp.json`))
+
+    this.expTimeLine = {
+      title: data.title,
+      data: data.data.map((item: any): TimeLineItem => {
+        return {
+          ...item,
+          start: moment(item.start),
+          end: moment(item.end),
+          techs: item.techs.map((tech: string): TechItem => allTechsMap[tech as keyof typeof allTechsMap])
+        }
+      })
+    }
+
+    addTitle(this.jsPdf, this.expTimeLine.title, 220)
 
     return await this.generateExperiences();
   }

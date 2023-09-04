@@ -3,8 +3,8 @@ import { pdfIntro } from "../../src/app/store/models/introduction.interface";
 import { ExperienceStat } from "../../src/app/store/app.state";
 import { cod500, green500, greyText } from "../utils/colors";
 import ExperienceStatsData from "../../src/app/data/sections/experience_stats.json";
-import { addTitle } from "../utils/texts";
-import { techsByCategories } from "../../src/app/store/models/tech-item.interface";
+import { addTitle, lang } from "../utils/texts";
+import { allTechsMap, TechByCategory, TechItem, techsByCategories } from "../../src/app/store/models/tech-item.interface";
 import { addTechs } from "../utils/images";
 import { margin, pageWidthWithMargins } from "../utils/dimensions";
 
@@ -14,17 +14,22 @@ export default class TechsGenerator {
 
   private y!: number;
 
-  constructor(jsPdf: jsPDF) {
+  private lang!: lang;
+
+  private techsByCategories!: { title: string, data: TechByCategory[] }
+
+  constructor(jsPdf: jsPDF, lang: lang) {
     this.jsPdf = jsPdf
+    this.lang = lang
   }
 
   async generateTechs() {
     this.y += 18;
 
-    for (let i = 0; i < techsByCategories.length; i++) {
+    for (let i = 0; i < this.techsByCategories.data.length; i++) {
 
 
-      const techsCat = techsByCategories[i];
+      const techsCat = this.techsByCategories.data[i];
 
       this.jsPdf.setFont('montserrat', 'bold')
       this.jsPdf.setFontSize(12)
@@ -41,7 +46,19 @@ export default class TechsGenerator {
   async generate(y: number) {
     this.y = y + 10;
 
-    addTitle(this.jsPdf, 'Tech stack', this.y)
+    const data = (await import(`../../data/${this.lang}/sections/techs.json`))
+
+    this.techsByCategories = {
+      title: data.title,
+      data: data.data.map((item: any): TechByCategory => {
+        return {
+          ...item,
+          techs: item.techs.map((tech: string): TechItem => allTechsMap[tech as keyof typeof allTechsMap])
+        }
+      })
+    }
+
+    addTitle(this.jsPdf, this.techsByCategories.title, this.y)
 
     await this.generateTechs();
 

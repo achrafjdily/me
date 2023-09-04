@@ -1,0 +1,42 @@
+{
+  "title": "Tech stack",
+  "data": [
+    {
+      "category": "Backend",
+      "techs": [
+        "php",
+        "laravel",
+        "restApi",
+        "microservices"
+      ]
+    },
+    {
+      "category": "Frontend",
+      "techs": [
+        "js",
+        "ts",
+        "angular",
+        "ngrx",
+        "vue",
+        "alpineJs",
+        "tailwindcss"
+      ]
+    },
+    {
+      "category": "DBMS",
+      "techs": [
+        "mysql",
+        "postgres"
+      ]
+    },
+    {
+      "category": "Other tools",
+      "techs": [
+        "git",
+        "docker",
+        "gitlab",
+        "github"
+      ]
+    }
+  ]
+}

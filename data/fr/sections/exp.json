@@ -1,0 +1,118 @@
+{
+  "title": "EXPÉRIENCE",
+  "data": [
+    {
+      "start": "2020-09",
+      "end": "2023-07",
+      "institute": {
+        "name": "Promy",
+        "link": "https://promy.fr"
+      },
+      "title": "Développeur web Full Stack",
+      "techs": [
+        "php",
+        "laravel",
+        "js",
+        "vue",
+        "git",
+        "gitlab",
+        "docker"
+      ],
+      "job": {
+        "remote": true,
+        "time": "Temps plein"
+      },
+      "tasks": [
+        "J'ai collaboré et construit une plateforme de location immobilière qui automatise et facilite le processus de location avec de multiples fonctionnalités telles que la génération de contrats de bail, comptabilité financière complexe et le suivi des paiements. J'ai pris de nombreuses décisions en matière d'architecture et d'ingénierie tout au long du projet.",
+        "J'ai collaboré au développement d'une plateforme Saas fournissant de multiples services aux promoteurs immobiliers. J'ai participé à la conception du système et à la refonte du code. J'ai développé et dirigé plusieurs décisions dans certaines parties de la plateforme et de ses sous-projets et fonctionnalités comme la création d'un calculateur automatique de bilan financier en implémentant des calculs complexes dans des interfaces conviviales de type feuille de calcul. J'ai contribué au développement d'autres fonctionnalités complexes et avancées telles que les cartes multicouches avec certaines couches 3D.",
+        "J'ai analysé les besoins, rédigé les tâches et les problèmes et participé activement à la gestion et à l'estimation des projets.",
+        "J'ai aidé à déployer et à surveiller plusieurs applications et sites web et je suis intervenu avec des hotfixes et des mises à jour QFE même en dehors des heures de travail.",
+        "J'ai aidé et contribué à la création de designs UX/UI conviviaux et de tutoriels interactifs pour les applications de l'entreprise.",
+        "J'ai travaillé en étroite collaboration avec le chef de projet et le Scrum product owner."
+      ]
+    },
+    {
+      "start": "2023-01",
+      "end": "2023-04",
+      "institute": {
+        "name": "Immofind",
+        "link": "https://immofind.ma"
+      },
+      "title": "Développeur web Full Stack",
+      "techs": [
+        "php",
+        "laravel",
+        "js",
+        "alpineJs",
+        "git",
+        "gitlab",
+        "docker"
+      ],
+      "job": {
+        "remote": true,
+        "time": "Temps partiel"
+      },
+      "tasks": [
+        "J'ai créé une plateforme de recherche et de mise en relation de biens immobiliers pour faciliter et simplifier la recherche de biens immobiliers pour les utilisateurs finaux.",
+        "J'ai implémenté des systèmes avancés de filtrage et de suggestions précises en utilisant des calculs de correspondance basés sur des données saisies par l'utilisateur.",
+        "J'ai refait le code existant et construit l'interface utilisateur et les panneaux d'administration.",
+        "J'ai analysé les besoins, priorisé les tâches et les objectifs, encadré et aidé les membres de l'équipe à utiliser les outils de gestion de projet.",
+        "J'ai configuré le serveur Linux, déployé la plate-forme, géré et surveillé l'infrastructure logicielle et matérielle requise."
+      ]
+    },
+    {
+      "start": "2021-04",
+      "end": "2021-08",
+      "institute": {
+        "name": "Moenn",
+        "link": "https://moenn-technologies.com"
+      },
+      "title": "Lead Angular Frontend developer",
+      "techs": [
+        "ts",
+        "angular",
+        "git",
+        "gitlab"
+      ],
+      "job": {
+        "remote": true,
+        "time": "Temps partiel"
+      },
+      "tasks": [
+        "J'ai posé l'architecture et les fondations des applications front, y compris les principales fonctionnalités",
+        "J'ai aidé et encadré des stagiaires sur Angular, Rxjs et Ngrx avec des patterns redux",
+        "J'ai coordonné le travail des équipes de développement front-end et back-end."
+      ]
+    },
+    {
+      "start": "2019-08",
+      "end": "2020-06",
+      "institute": {
+        "name": "Devaxy",
+        "link": "https://www.linkedin.com/company/devaxy"
+      },
+      "title": "Développeur web Full Stack",
+      "techs": [
+        "php",
+        "laravel",
+        "ts",
+        "angular",
+        "ionic",
+        "git",
+        "github"
+      ],
+      "job": {
+        "remote": false,
+        "time": "Temps plein"
+      },
+      "tasks": [
+        "J'ai posé l'architecture et les fondations des applications mobiles front et hybrides.",
+        "J'ai créé une application d'administration front ainsi que plusieurs applications web responsives pour les clients et les utilisateurs finaux.",
+        "J'ai créé deux applications mobiles multiplateformes (en Ionic Framework pour Android et iOS)",
+        "J'ai aidé et encadré les membres de l'équipe sur Angular et Typescript",
+        "Je me suis engagé dans la recherche et le développement pour trouver les meilleurs outils et solutions pour plusieurs cas d'utilisation.",
+        "J'ai collaboré avec l'équipe de conception UI/UX pour créer des interfaces UI de qualité et ergonomiques."
+      ]
+    }
+  ]
+}

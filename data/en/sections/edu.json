@@ -1,0 +1,28 @@
+{
+  "title": "EDUCATION",
+  "data": [
+    {
+      "start": "2019-09",
+      "end": "2020-07",
+      "institute": {
+        "name": "Faculty of Science and Technology - SETTAT"
+      },
+      "title": "Professional bachelor's degree : Database administration & Web technologies"
+    },
+    {
+      "start": "2017-09",
+      "end": "2019-07",
+      "institute": {
+        "name": "OFPPT - SIAT NICT SIDI MAÂROUF 2"
+      },
+      "title": "Specialized technician's degree : multimedia & web development"
+    },
+    {
+      "start": "2015-06",
+      "institute": {
+        "name": "Lycée al-Mokhtar Soussi"
+      },
+      "title": "Baccalaureate in physical sciences"
+    }
+  ]
+}

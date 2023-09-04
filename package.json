@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "compile-docs-generator": "npx ts-node --project tsconfig.generator.json ./generate-resume/generate.ts"
+    "prod" : "ng build --build-optimizer --optimization",
+    "preprod": "npx ts-node --project tsconfig.generator.json ./generate-resume/generate.ts"
   },
   "private": true,
   "dependencies": {

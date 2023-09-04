@@ -1,3 +1,4 @@
 import { ResumeGenerator } from "./resume-generator";
 
-(new ResumeGenerator()).generateResume();
+(new ResumeGenerator('en')).generateResume();
+(new ResumeGenerator('fr')).generateResume();

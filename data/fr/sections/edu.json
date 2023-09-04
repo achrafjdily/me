@@ -1,0 +1,28 @@
+{
+  "title": "ÉDUCATION",
+  "data": [
+    {
+      "start": "2019-09",
+      "end": "2020-07",
+      "institute": {
+        "name": "Faculté des sciences et technologies - SETTAT"
+      },
+      "title": "Licence professionnelle : administration des bases de données et technologies Web"
+    },
+    {
+      "start": "2017-09",
+      "end": "2019-07",
+      "institute": {
+        "name": "OFPPT - ISTA NTIC SIDI MAÂROUF 2"
+      },
+      "title": "Diplôme de technicien spécialisé : multimédia et développement web"
+    },
+    {
+      "start": "2015-06",
+      "institute": {
+        "name": "Lycée al-Mokhtar Soussi"
+      },
+      "title": "Baccalauréat en sciences physiques et chimiques"
+    }
+  ]
+}
