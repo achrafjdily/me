@@ -1,5 +1,5 @@
 import { faTwitter, faGithub, faWhatsapp, IconDefinition, faLinkedin, faDiscord } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faGlobe, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 export interface SocialLink {
   platform: string,
@@ -70,8 +70,15 @@ const discord: SocialLink = {
   icon: faDiscord
 }
 
+const website: SocialLink = {
+  platform: 'web',
+  username: 'https://achrafjdily.github.io/me',
+  link: 'https://achrafjdily.github.io/me',
+  icon: faGlobe
+}
+
 export const allSocialLinks: SocialLink[] = [mail, tel, Linkedin, twitter, github, whatsapp, discord];
 
-export const pdfLinks: SocialLink[] = [mail, tel, Linkedin, twitter, github, whatsapp];
+export const pdfLinks: SocialLink[] = [website, mail, tel, Linkedin, twitter, github, whatsapp];
 
 export const socialLinks: SocialLink[] = [Linkedin, twitter, github];

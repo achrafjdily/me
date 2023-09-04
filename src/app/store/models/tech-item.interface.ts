@@ -101,13 +101,13 @@ export const tailwindcss: TechItem = {
 }
 
 export const restApi: TechItem = {
-  icon: '/assets/imgs/icons/rest-api.svg',
+  icon: 'assets/imgs/icons/rest-api.svg',
   name: 'Rest APIs',
   isSimpleIcon: true
 }
 
 export const microservices: TechItem = {
-  icon: '/assets/imgs/icons/microservices.svg',
+  icon: 'assets/imgs/icons/microservices.svg',
   name: 'Microservices',
   isSimpleIcon: true
 }

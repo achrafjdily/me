@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "prod" : "ng build --build-optimizer --optimization",
+    "prod" : "ng build --base-href=/me/ --build-optimizer --optimization",
     "preprod": "npx ts-node --project tsconfig.generator.json ./generate-resume/generate.ts"
   },
   "private": true,
